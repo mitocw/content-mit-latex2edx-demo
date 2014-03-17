@@ -20,7 +20,7 @@
   </sequential>
   <sequential display_name="Graphical input using javascript" url_name="Graphical_input_using_javascript">
     <vertical url_name="Graphical_input_using_javascript_vertical">
-      <problem url_name="Field_independent_transitions"/>
+      <problem url_name="Graphical_input_via_jsxgraph"/>
     </vertical>
   </sequential>
 </chapter>

@@ -209,16 +209,15 @@ structure splittings, to properly label the following energy level diagram.
 
 \begin{edXvertical}
 
-\begin{edXproblem}{Field independent transitions}{attempts=10}
+\begin{edXproblem}{Graphical input via jsxgraph}{attempts=10}
 
-    There are some values of magnetic field $x$ where the resonance
-    frequency $\Delta E$ for the (magnetic) dipole transition
-    (selection rules $\Delta m = 0, \pm 1$) is first-order field
-    independent (i.e., the leading order term in $\Delta E$ is of
-    $O((\Delta x)^2)$). 
+The \href{http://edx.readthedocs.org/projects/devdata/en/latest/course_data_formats/jsinput.html}{jsinput} framework provides a very convenient way to
+employ virtually arbitrary javascript code as a user interface for
+input into edX auto-graded problems.  
 
-%    Show those values for magnetic field and
-%    corresponding transitions on your figure from part b).
+This is an example which uses sliders and graphs from
+\href{http://jsxgraph.uni-bayreuth.de/}{jsxgraph}, a nice javascript
+math function plotting package, as input to a physics problem.
 
      Identify one such field-independent transition in the figure
      below, by doing the following:

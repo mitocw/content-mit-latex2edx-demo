@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<problem display_name="Graphical input via jsxgraph" attempts="10">
+  <text>
+    <p>
+The <a href="http://edx.readthedocs.org/projects/devdata/en/latest/course_data_formats/jsinput.html">jsinput</a> framework provides a very convenient way to employ virtually arbitrary javascript code as a user interface for input into edX auto-graded problems. </p>
+    <p>
+This is an example which uses sliders and graphs from <a href="http://jsxgraph.uni-bayreuth.de/">jsxgraph</a>, a nice javascript math function plotting package, as input to a physics problem. </p>
+    <p>
+Identify one such field-independent transition in the figure below, by doing the following: </p>
+    <ul class="itemize">
+      <li>
+        <p>
+Use the slider to select a value of [mathjaxinline]x[/mathjaxinline] </p>
+      </li>
+      <li>
+        <p>
+Choose two different states (A...H) for the transition </p>
+      </li>
+      <li>
+        <p>
+Click &#x201C;Check" to check your answer </p>
+      </li>
+    </ul>
+    <p>
+      <script>
+import json
+import math
+
+def checkans(xok, statesok, x, states):
+    ep = 0.18
+    if abs(x-xok)&gt;ep:
+        return False
+    if states[0] not in statesok:
+        return False
+    if states[1]==states[0]:
+        return False
+    if states[1] not in statesok:
+        return False
+    return True
+
+
+def test_findep(expect, ans):
+    # for debugging
+    # return {'ok': False, 'msg': 'ans=%s' % ans}
+
+    # ans is a JSON string with "answer" and "state" defined
+    answer = json.loads(json.loads(ans)['answer'])
+    
+    # return {'ok': False, 'msg': 'a=%s' % answer}
+    
+    # the javascript gives us a dict with x, astate, and bstate
+    # legal answers for this question are:
+
+    # x~0: c,g (1,0)-(2,0)
+    # x~0.5: d,f (1,-1)-(2,-1)
+    # x~2-sqrt(3) = 0.2679491924311228: d,g (1,0)-(2,-1)
+    # x~2-sqrt(3) = 0.2679491924311228: f,c (1,-1)-(2,0)
+
+    x = float(answer['x'])
+    astate = str(answer['astate'])
+    bstate = str(answer['bstate'])
+
+    valid = {0: 'CG',
+             0.5: 'DF',
+             0.267951: 'DG',
+             0.26795: 'FC',
+             }
+
+    for xok, statesok in valid.items():
+        if checkans(xok, statesok, x, [astate, bstate]):
+            return {'ok': True, 'msg': 'Correct!'}
+    msg = "Sorry, the transition between %s and %s at x=%6.2f is not first-order field independent" % (astate,bstate,x)
+    return {'ok': False, 'msg': msg}
+
+</script>
+    </p>
+    <script type="text/javascript">setTimeout(function(){ JSInput.jsinputConstructor($ ('section.jsinput'))}, 1400);</script>
+    <p>
+      <customresponse cfn="test_findep" expect="">
+        <jsinput width="650" height="555" gradefn="getinput" get_statefn="getstate" set_statefn="setstate" html_file="/static/html/ps3plot_btran1.html"/>
+      </customresponse>
+    </p>
+  </text>
+</problem>

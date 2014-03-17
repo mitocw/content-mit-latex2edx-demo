@@ -7,6 +7,8 @@ Quantum mechanics uses &#x201C;ket" notation like [mathjaxinline]|\psi \rangle[/
 This problem demonstrates how to use customresponse python code to check for equality of formulas with such ket notation, as well as a javascript pre-processor to properly format ket expressions. </p>
     <p>
 Type in <tt class="tt">(2*|0&gt;+3*|b&gt;)/sqrt(13)</tt> as the answer below. </p>
+    <p>
+Multiple correct answer are supported. <tt class="tt">|b&gt;</tt> is also correct, in this example. </p>
     <font color="red">
       <b> Remeber to explicitly denote multiplication using [mathjaxinline]\tt *[/mathjaxinline]</b>
     </font>
