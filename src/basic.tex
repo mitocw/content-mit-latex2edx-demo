@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXchapter}{Basic examples}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXsection}{Basic example problems}
+
+\begin{edXvertical}
+
+\begin{edXproblem}{Option response}
+
+This is a sample problem, which is worth 10 points.
+
+Give the correct python {\tt type} for the following expressions.  Select {\tt noneType} if the expression is illegal.
+
+\begin{itemize}
+\item \edXinline{\tt 3~~~}   \edXabox{expect="int" options="noneType","int","float" type="option" inline="1"}
+\item \edXinline{\tt 5.2~~~} \edXabox{expect="float" options="noneType","int","float" type="option" inline="1"}
+\item \edXinline{\tt 3/2~~~} \edXabox{expect="int" options="noneType","int","float" type="option" inline="1"}
+\item \edXinline{\tt 1+[]~~~} \edXabox{expect="noneType" options="noneType","int","float" type="option" inline="1"}
+\end{itemize}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{String response}
+
+What state is Detroit in?
+
+\edXabox{expect="Michigan" type="string"}
+
+\begin{edXsolution}
+
+Explanations can also be provided inside:
+\begin{verbatim}
+\begin{edXsolution}
+... 
+\end{edXsolution}
+\end{verbatim}
+
+\end{edXsolution}
+
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Numerical response}
+
+\section{Example of numerical response}  
+
+What is the numerical value of $pi$?
+
+\edXabox{expect="3.14159" type="numerical" tolerance='0.01' }
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Custom response}
+
+\section{Example of custom response}  
+
+This problem demonstrates the use of a custom python script used for
+checking the answer.
+
+\begin{edXscript}
+
+def sumtest(expect,ans):
+    try:
+        (a1,a2) = map(float,ans)
+        return (a1+a2)==10
+    except Exception as err:
+        return {'ok': False, 'msg': 'Sorry, cannot evaluate your input ' + str(ans)}
+
+\end{edXscript}
+
+Enter two numbers which add up to 10:
+
+\edXabox{expect=""
+  type="custom"
+  answers="1,9"
+  prompts="x = ","y = "
+  cfn="sumtest"
+  inline="1" }%
+
+\end{edXproblem}
+
+\end{edXvertical}
+
+\end{edXsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXsection}{Video and text}
+
+\begin{edXvertical}
+
+\begin{edXtext}{Sample show-hide text section}
+
+{\LARGE Sample show-hide text section}
+
+Pieces of text (and images) can be put inside a ``showhide'' section, which the user can hide or show via a click.
+
+\begin{edXshowhide}{ps4starkket}{Hints and instructions for entering expressions}
+
+Note that rotations leave points on the axis of rotation unmoved.  For
+a point $(\theta, \phi)$ specified in polar coordinates on the surface
+of the \href{http://en.wikipedia.org/wiki/Bloch_sphere}{Bloch sphere},
+the corresponding two-level quantum state is
+\bea
+	|\psi\> = \cos\frac{\theta}{2} |a\> +
+        e^{i\phi}\sin\frac{\theta}{2} |b\>
+\,.
+\eea
+
+Enter the state using the vertical bar ${\tt |}$ and greater-than
+symbol ${\tt >}$ to delineate a ``ket'' and enter $\omega_0$ as ${\tt omega\_0}$ as usual.
+
+Expressions like ${\tt (2*|a> + |b>)/sqrt(3)}$ are legal input
+(remember to include ${\tt *}$ to denote multiplication, for
+coefficients in front of kets).
+
+Standard mathematical functions may be employed, e.g. ${\tt sin(x)}$,
+${\tt sqrt(x)}$, ${\tt arccos(x)}$,  ${\tt arctan(x)}$, etc.  
+
+\end{edXshowhide}
+
+\end{edXvertical}
+
+\begin{edXvertical}
+
+\edXxml{<video url_name="week0_intro" display_name="Introduction to 6.SFMx" youtube="1.0:VfOMvuHcJi0" />}
+
+\end{edXvertical}
+
+\end{edXsection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{edXchapter}

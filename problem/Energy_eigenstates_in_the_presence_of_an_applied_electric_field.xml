@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<problem display_name="Energy eigenstates in the presence of an applied electric field" attempts="10" weight="10">
+  <text>
+    <p>
+What are the energy eigenstates when an electric field is applied? </p>
+    <p>
+Give an eigenstate [mathjaxinline]|\lambda \rangle[/mathjaxinline] of [mathjaxinline]H[/mathjaxinline] in terms of [mathjaxinline]\omega _0[/mathjaxinline] and [mathjaxinline]V[/mathjaxinline]. You may enter either of the two eigenstates. </p>
+    <p>
+      <table class="wikitable collapsible collapsed">
+        <tbody>
+          <tr>
+            <th> Hints and instructions for entering expressions [<a href="javascript:$('#ps4starkket').toggle()" id="ps4starkketl">show</a>]</th>
+          </tr>
+          <tr id="ps4starkket" style="display:none">
+            <td>
+              <p>
+Note that rotations leave points on the axis of rotation unmoved. For a point [mathjaxinline](\theta , \phi )[/mathjaxinline] specified in polar coordinates on the surface of the <a href="http://en.wikipedia.org/wiki/Bloch_sphere">Bloch sphere</a>, the corresponding two-level quantum state is </p>
+              <table id="a0000000006" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
+                <tr id="a0000000007">
+                  <td style="border:none">&#xA0;</td>
+                  <td style="border:none">
+	    [mathjaxinline]\displaystyle |\psi \rangle  = \cos \frac{\theta }{2} |a\rangle  + e^{i\phi }\sin \frac{\theta }{2} |b\rangle  \, .[/mathjaxinline]
+        </td>
+                  <td style="border:none">&#xA0;</td>
+                  <td style="border:none" class="eqnnum">
+                    <span>(<span>4</span>)</span>
+                  </td>
+                </tr>
+              </table>
+              <p>
+Enter the state using the vertical bar [mathjaxinline]{\tt |}[/mathjaxinline] and greater-than symbol [mathjaxinline]{\tt &gt;}[/mathjaxinline] to delineate a &#x201C;ket" and enter [mathjaxinline]\omega _0[/mathjaxinline] as [mathjaxinline]{\tt omega\_ 0}[/mathjaxinline] as usual. </p>
+              <p>
+Expressions like [mathjaxinline]{\tt (2*|a&gt; + |b&gt;)/sqrt(3)}[/mathjaxinline] are legal input (remember to include [mathjaxinline]{\tt *}[/mathjaxinline] to denote multiplication, for coefficients in front of kets). </p>
+              <p>
+Standard mathematical functions may be employed, e.g. [mathjaxinline]{\tt sin(x)}[/mathjaxinline], [mathjaxinline]{\tt sqrt(x)}[/mathjaxinline], [mathjaxinline]{\tt arccos(x)}[/mathjaxinline], [mathjaxinline]{\tt arctan(x)}[/mathjaxinline], etc. </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <font color="red">
+      <b> Remeber to explicitly denote multiplication using [mathjaxinline]\tt *[/mathjaxinline]</b>
+    </font>
+    <p>
+      <br/>
+    </p>
+    <script type="text/python" system_path="python_lib">
+
+from ket_evaluator import *
+
+</script>
+    <p>
+      <p style="display:inline">[mathjaxinline]|\lambda \rangle  =[/mathjaxinline] </p>
+      <customresponse cfn="test_ket" inline="1" expect="cos(arctan(2*V/omega_0)/2)*|a&amp;gt; + sin(arctan(2*V/omega_0)/2)*|b&amp;gt;" options="samples='a,b,V,omega_0@1,1,1,1:20,20,20,20#50'!altanswer='cos(arctan(2*V/omega_0)/2)*|b&amp;gt; - sin(arctan(2*V/omega_0)/2)*|a&amp;gt;'" cfn_extra_args="options">
+        <textline size="60" correct_answer="cos(arctan(2*V/omega_0)/2)*|a&amp;gt; + sin(arctan(2*V/omega_0)/2)*|b&amp;gt;" inline="1" math="1" preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"/>
+      </customresponse>
+    </p>
+    <p>
+      <solution>
+        <font color="blue">Answer: </font>
+        <font color="blue">
+          <p>
+The [mathjaxinline]\hat{n}[/mathjaxinline] vector goes through the point [mathjaxinline](\theta , \phi )[/mathjaxinline] specified in polar coordinates, with [mathjaxinline]\phi =0[/mathjaxinline] and </p>
+          <table id="a0000000008" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
+            <tr id="a0000000009">
+              <td style="border:none">&#xA0;</td>
+              <td style="border:none">
+	    [mathjaxinline]\displaystyle \theta = \cos ^{-1} \frac{\omega _0/2}{\sqrt {V^2 + \left(\frac{\omega _0}{2}\right)^2}} = \tan ^{-1}\left(\frac{2V}{\omega _0}\right) \, .[/mathjaxinline]
+        </td>
+              <td style="border:none">&#xA0;</td>
+              <td style="border:none" class="eqnnum">
+                <span>(<span>5</span>)</span>
+              </td>
+            </tr>
+          </table>
+          <p>
+In terms [mathjaxinline]\theta[/mathjaxinline], the eigenstates may be expressed as </p>
+          <table id="a0000000010" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
+            <tr id="a0000000011">
+              <td style="border:none">&#xA0;</td>
+              <td style="border:none">
+	    [mathjaxinline]\displaystyle |\lambda _+\rangle  = \cos \frac{\theta }{2} |a\rangle  +\sin \frac{\theta }{2} |b\rangle[/mathjaxinline]
+        </td>
+              <td style="border:none">&#xA0;</td>
+              <td style="border:none" class="eqnnum">
+                <span>(<span>6</span>)</span>
+              </td>
+            </tr>
+            <tr id="a0000000012">
+              <td style="border:none">&#xA0;</td>
+              <td style="border:none">
+	    [mathjaxinline]\displaystyle |\lambda _-\rangle  = -\sin \frac{\theta }{2} |a\rangle  +\cos \frac{\theta }{2} |b\rangle  \, .[/mathjaxinline]
+        </td>
+              <td style="border:none">&#xA0;</td>
+              <td style="border:none" class="eqnnum">
+                <span>(<span>7</span>)</span>
+              </td>
+            </tr>
+          </table>
+        </font>
+      </solution>
+    </p>
+  </text>
+</problem>

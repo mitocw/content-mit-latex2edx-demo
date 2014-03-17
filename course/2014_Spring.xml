@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<course number="MIT.latex2edx" display_name="latex2edx demo course" semester="2014_Spring" org="MITx">
+  <chapter url_name="Introduction"/>
+  <chapter url_name="Basic_examples"/>
+  <chapter url_name="Advanced_Examples"/>
+</course>

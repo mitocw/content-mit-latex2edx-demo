@@ -1,0 +1,221 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXchapter}{Staff Content}
+
+\begin{edXsection}{Staff Test}
+
+\begin{edXtext}{Staff Test Overview}
+
+
+{\bf Due date: Friday, 12/6}
+
+\section{Material covered}
+
+This problem set covers the following lectures and reading.  Reading
+is from the course text: ``The Physics of Energy'' by Jaffe and Taylor
+(preliminary draft).
+
+\begin{itemize}
+\item Lecture 32 (11/22):  {\sl Fossil Fuels II}
+   (POE  \S 33)
+\item Lecture 33 (11/25):  {\sl  Biofuels}
+   (POE  \S 26)
+\item Lecture 34 (11/27):  {\sl Energy storage}
+   (POE  \S 36)
+\item Lecture 35 (12/2):  {\sl The electric grid}
+   (POE  \S 37)
+\item Lecture 36 (12/4):  {\sl Energy and Climate I}
+   (POE  \S 34)
+\end{itemize}
+
+This problem set has two parts.
+
+The online assignment consists of 6 problems, due 12/6.
+ 
+The written part of the assignment can be found \href{http://physicsofenergy.mit.edu/students/problems.php}{here}.
+
+\end{edXtext}
+
+\end{edXsection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXsection}{Staff Problems I}
+
+\begin{edXvertical}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{edXproblem}{Staff Chapter 33 problem 13a}{attempts=5}
+
+\begin{edXscript}
+expected=[ 177 ]
+\end{edXscript}
+
+\edXinclude{XML/magnitude_hint2.xml}
+
+How does the \href{http://en.wikipedia.org/wiki/Energy_density}{energy
+  density} of \href{http://en.wikipedia.org/wiki/Petroleum}{crude oil}
+$E_{\rm oil}$ compare with the energy density of hot
+\href{http://en.wikipedia.org/wiki/Geothermal_energy}{geothermal}
+fluid $E_{\rm geo}$?
+
+Model the geothermal fluid as water, and assume its starts at 360 K
+when pumped from oil/geothermal wells at a rate of 30 l/s, and is
+cooled to 300 K.
+
+Give the ratio of energy densities.
+
+\edXinline{$E_{\rm oil}/E_{\rm geo}$ =} \edXabox{expect="177" type="numerical"
+  tolerance='20\%' inline='1' hintfn="hint_mag0" } 
+ 
+\solution{
+  If the geothermal fluid is basically just water, then its density at
+  360~K is approximately 1~g/cm$^3$ (really is 0.97~g/cm$^3$ but also
+  changes with temperature as heat is extracted). The heat capacity is
+  approximately $c = 4.18~kJ/kg K$. If the fluid is cooled to a
+  typical temperature of 300~K, then the total energy density of the
+  geothermal fluid is
+\begin{equation}
+\mathcal{E}_{\rm geo} = \rm(4.18~kJ/kg~K)(60~K) = 251~kJ/kg
+\end{equation}
+Oil has an energy density of around 43~MJ/kg (wikipedia gives 46
+MJ/kg).  Thus, $E_{\rm oil}/E_{\rm geo} \approx 177$, so oil has
+nearly 200 times the energy density of the geothermal fluid.  }
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{edXproblem}{Staff Chapter 33 problem 13b}{attempts=5}
+
+\begin{edXscript}
+expected=[ 0.078, 4.6e-4 ]
+\end{edXscript}
+
+\edXinclude{XML/magnitude_hint2.xml}
+
+Both oil and geothermal fluid need to be pumped from the ground.
+Compare the power needed to pump the geothermal fluid $P_{\rm geo, grav}$ with the power
+available from the geothermal fluid $P_{\rm geo}$ (when pumped at 30
+l/s).
+
+Assume the pump provides all energy needed to lift the fluid from a
+depth of 2~km.  Disregard the lift from reservoir pressure.
+
+\edXinline{$P_{\rm geo, grav}/P_{\rm geo}$ =} \edXabox{expect="0.078" type="numerical"
+  tolerance='5\%' inline='1' hintfn="hint_mag0" } 
+
+Now do similarly for oil.  
+Compare the power needed to pump oil $P_{\rm oil, grav}$ with the power
+available from the oil $P_{\rm oil}$ (when pumped at 30
+l/s).  Assume the oil has a mass density of $0.9$ kg/l.
+
+\edXinline{$P_{\rm oil, grav}/P_{\rm  oil}$ =} \edXabox{expect="4.6e-4" type="numerical"
+  tolerance='12\%' inline='1' hintfn="hint_mag1" } 
+
+\solution{
+At 30~l/s, the total power provided by the geothermal source is
+\begin{equation}
+P_{\rm geo} = E_{\rm geo}\rm(30~l/s)(1~kg/l)  = 7.5~MW
+\end{equation}
+The total rate of energy consumption due to gravitational potential energy is 
+\begin{equation}
+P_{\rm geo, grav} = \rho \ell g Av
+\end{equation}
+where $\ell = 2$ km is the depth and $Av$ is the flow rate (30~l/s). For
+the geothermal well, $P_{\rm geo, grav} = 588$~kW.  Thus
+\begin{equation}
+  P_{\rm geo, grav}/P_{\rm geo} = 0.078
+\,,
+\end{equation}
+or less than 10\% of the
+total energy available. However, once the efficiency of the pump is
+considered, a large fraction of the energy from the well would need to
+be used just to run the pump.
+
+The mass density of oil is approximately 0.9~kg/l, so for the oil
+well, energy contained in the oil is equivalent to
+\begin{equation}
+P_{\rm oil} = (43~MJ/kg)(30~l/s)(0.9~kg/l) = 1.16~GW
+\end{equation}
+The power required to pump the oil from a depth of 2~km is just
+$P_{\rm oil, grav}=529$~kW, so
+\begin{equation}
+  P_{\rm geo, grav}/P_{\rm geo} \approx 4.6\times 10^{-4}
+\,,
+\end{equation}
+which is very small compared to the amount of energy that can be extracted from the oil.
+}
+
+\end{edXproblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXvertical}
+ 
+
+\end{edXsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{edXsection}{Staff Grading Tests}
+
+\edXinclude{XML/staff_grading1.xml}
+
+\end{edXsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{edXsection}{Staff Problems II}
+
+\begin{edXvertical}
+
+\begin{edXproblem}{Test operator equations}
+
+Let $X$, $Y$, and $Z$ be the usual Pauli matrices,
+\bea
+     	X &=& \mattwoc{0}{1}{1}{0}
+\\ 	Y &=& \mattwoc{0}{-i}{i}{0}
+\\ 	Z &=& \mattwoc{1}{0}{0}{-1}
+\,.
+\eea
+Give an expression equal to $iZ$.
+
+\begin{edXscript}
+
+from matrix_evaluator import *
+
+\end{edXscript}
+
+\edXinline{$|\lambda\> = $ }
+\edXabox{expect="X*Y" 
+  type="custom" cfn="test_formula" 
+  inline='1'
+  math="1" 
+  size="70"
+  options="samples='X,Y,Z,i@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1],0+1j:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1],0+1j#50'!altanswer='-Y*X'!altanswer='i*Z'"
+  preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"
+ }%
+
+  % options="samples='X,Y,i@[1|2;3|4],[0|2;4|6],0+1j:[5|5;5|5],[8|8;8|8],0+1j#50'!altanswer='-Y*X'!altanswer='i*Z'"
+
+\begin{edXsolution}
+
+Either $XY$ or $-YX$ but not $YX$.
+
+\end{edXsolution}
+
+\end{edXproblem}
+
+\end{edXvertical}
+
+\end{edXsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXchapter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

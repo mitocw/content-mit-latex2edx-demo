@@ -1,0 +1,42 @@
+<customresponse>
+    <drag_and_drop_input img="/static/images/ps4-hydrogen-dnd.png" target_outline="true"
+        one_per_target="true" no_labels="true" label_bg_color="rgb(222, 139, 238)">
+
+        <draggable id="l1" label='Lamb shift'  />
+        <draggable id="l2" label='Fine structure'  />
+        <draggable id="1" icon="/static/images/ps4-2s12.png"  />
+        <draggable id="2" icon="/static/images/ps4-2s32.png"  />
+        <draggable id="3" icon="/static/images/ps4-2p12.png"  />
+        <draggable id="4" icon="/static/images/ps4-2p32.png"  />
+        <draggable id="5" icon="/static/images/ps4-2p52.png"  />
+        <draggable id="6" icon="/static/images/ps4-2d12.png"  />
+        <draggable id="7" icon="/static/images/ps4-2d32.png"  />
+
+        <target id="t1" x="393" y="5"  w="160" h="80"/>
+        <target id="t2" x="94" y="280"  w="160" h="80"/>
+        <target id="t3" x="393" y="373"  w="160" h="80"/>
+
+        <target id="t4" x="87" y="426"  w="100" h="30"/>
+        <target id="t5" x="336" y="205"  w="100" h="30"/>
+
+    </drag_and_drop_input>
+
+    <answer type="loncapa/python"><![CDATA[
+
+caset = [{"4":"t1"},{"1":"t2"},{"3":"t3"}, {"l1":"t4"}, {"l2":"t5"}]
+
+correct_answer1 = [ {'draggables': ca.keys(),'targets': ca.values(),'rule':'exact'} for ca in caset ]
+
+if draganddrop.grade(submission[0], correct_answer1):
+    correct = ['correct']
+else:
+    correct = ['incorrect']
+
+# use this for debugging
+# get correct answers by dragging, then copy the message and paste to become caset
+
+def ddcheck(expect, ans):
+    return {'ok':False, 'msg': 'ans=%s' % ans}
+
+]]></answer>
+</customresponse>

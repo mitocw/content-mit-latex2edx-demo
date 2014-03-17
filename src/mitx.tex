@@ -1,0 +1,38 @@
+%
+% File:   mitx.tex
+% Date:   26-Jan-14
+% Author: I. Chuang <ichuang@mit.edu>
+%
+% main latex source file for the latex2edx demo course
+% This file can be compiled using
+%
+%   python latex2edx mitx.tex
+%
+% to generate all the content files for the course.
+
+\documentclass[12pt]{article}
+
+\usepackage{edXpsl}	% edX
+\usepackage{hyperref}
+\input{ikedoc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{edXcourse}{MIT.latex2edx}{latex2edx demo course}[semester="2014_Spring"]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{intro}
+
+\input{basic}
+
+\input{advanced}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXcourse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<problem display_name="Matrix expression equality">
+  <text>
+    <p>
+This problem demonstrates testing of matrix expression equality. It properly handles the non-commutativity of matrices. </p>
+    <p>
+Let [mathjaxinline]X[/mathjaxinline], [mathjaxinline]Y[/mathjaxinline], and [mathjaxinline]Z[/mathjaxinline] be the usual Pauli matrices, </p>
+    <table id="a0000000002" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
+      <tr id="a0000000003">
+        <td style="border:none">&#xA0;</td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle X[/mathjaxinline]
+        </td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle =[/mathjaxinline]
+        </td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle  \left( \begin{array}{cc}{0}&amp; {1}\\ {1}&amp; {0}\end{array}\right)[/mathjaxinline]
+        </td>
+        <td style="border:none">&#xA0;</td>
+        <td style="border:none" class="eqnnum">
+          <span>(<span>1</span>)</span>
+        </td>
+      </tr>
+      <tr id="a0000000004">
+        <td style="border:none">&#xA0;</td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle Y[/mathjaxinline]
+        </td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle =[/mathjaxinline]
+        </td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle  \left( \begin{array}{cc}{0}&amp; {-i}\\ {i}&amp; {0}\end{array}\right)[/mathjaxinline]
+        </td>
+        <td style="border:none">&#xA0;</td>
+        <td style="border:none" class="eqnnum">
+          <span>(<span>2</span>)</span>
+        </td>
+      </tr>
+      <tr id="a0000000005">
+        <td style="border:none">&#xA0;</td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle Z[/mathjaxinline]
+        </td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle =[/mathjaxinline]
+        </td>
+        <td style="border:none">
+	    [mathjaxinline]\displaystyle  \left( \begin{array}{cc}{1}&amp; {0}\\ {0}&amp; {-1}\end{array}\right) \, .[/mathjaxinline]
+        </td>
+        <td style="border:none">&#xA0;</td>
+        <td style="border:none" class="eqnnum">
+          <span>(<span>3</span>)</span>
+        </td>
+      </tr>
+    </table>
+    <p>
+Give an expression [mathjaxinline]M[/mathjaxinline] equal to [mathjaxinline]iZ[/mathjaxinline]. </p>
+    <p>
+Valid answers include <tt class="tt">X*Y</tt> and <tt class="tt">-i*Z</tt>. But <tt class="tt">Y*X</tt> is properly graded as being invalid. </p>
+    <script type="text/python" system_path="python_lib">
+
+from matrix_evaluator import *
+
+</script>
+    <p>
+      <p style="display:inline">[mathjaxinline]M =[/mathjaxinline] </p>
+      <customresponse cfn="test_formula" inline="1" expect="X*Y" options="samples='X,Y,Z,i@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1],0+1j:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1],0+1j#50'!altanswer='-Y*X'!altanswer='i*Z'" cfn_extra_args="options">
+        <textline size="70" correct_answer="X*Y" inline="1" math="1" preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"/>
+      </customresponse>
+    </p>
+    <p>
+      <solution>
+        <font color="blue">Answer: </font>
+        <font color="blue">
+          <p>
+Either [mathjaxinline]XY[/mathjaxinline] or [mathjaxinline]-YX[/mathjaxinline] but not [mathjaxinline]YX[/mathjaxinline]. </p>
+        </font>
+      </solution>
+    </p>
+  </text>
+</problem>

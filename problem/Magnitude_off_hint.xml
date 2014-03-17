@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<problem display_name="Magnitude off hint" attempts="500">
+  <text>
+    <script type="text/python" system_path="python_lib">
+ans0 = 177
+expected=[ ans0 ]
+</script>
+    <p>
+      <script>
+# the global variable "expected" should be defined before functions in this script are called
+#
+# if the problem has more than one answer box, then "expected" should be a list, and
+# hint_mag0, hint_mag1, etc should be used in sequential order for each answer box.
+
+from math import log10
+from calc import evaluator
+
+def is_close(ans, expect):
+    # compute difference of ans and expected, in terms of order of magnitude
+    try:
+        magdif = abs( log10(abs(float(ans)))-log10(abs(expect)) )
+    except Exception as err:
+        return ""
+    if magdif &amp;gt; 2:
+        return "You are more than two orders of magnitude off&amp;lt;br/&amp;gt;"
+    return ""
+
+def is_tight(ans, expect, tolpct=0.01):
+    # compute difference of ans and expected, and return True if within tolerance percentage
+    difpct = abs( float(ans) - float(expect) ) / float(expect)
+    return difpct &lt;= tolpct
+
+def in_range(ans, range):
+    ansf = float(ans)
+    return ansf &gt;= range[0] and ansf &lt;= range[1]
+
+def is_sign_correct(ans, expect):
+    # see if sign is same between ans and expect
+    try:
+        signdif = math.copysign(1, float(ans)) * math.copysign(1, float(expect))
+    except Exception as err:
+        return ""
+    if signdif &amp;lt; 0:
+        return "Is the sign of your answer correct?&amp;lt;br/&amp;gt;"
+    return ""
+
+def hint_mag0_sign(answer_ids, student_answers, new_cmap, old_cmap):
+    hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=0, sign=True)
+
+def hint_mag0(answer_ids, student_answers, new_cmap, old_cmap):
+    hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=0)
+
+def hint_mag1_sign(answer_ids, student_answers, new_cmap, old_cmap):
+    hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=1, sign=True)
+
+def hint_mag1(answer_ids, student_answers, new_cmap, old_cmap):
+    hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=1)
+
+def hint_mag2_sign(answer_ids, student_answers, new_cmap, old_cmap):
+    hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=2, sign=True)
+
+def hint_mag2(answer_ids, student_answers, new_cmap, old_cmap):
+    hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=2)
+
+def hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=0, sign=False):
+    global expected
+
+    try:
+        aid = answer_ids[0]
+    except Exception as err:
+        raise Exception('cannot get answer_ids[%d], answer_ids=%s, new_cmap=%s, err=%s' % (anum, answer_ids, new_cmap, err))
+
+    ans = student_answers[aid]
+    try:
+        ans = float(ans)
+    except Exception as err:
+        try:
+            ans = evaluator({},{}, ans)
+        except Exception as err:
+            hint = '&lt;font color="red"&gt;Cannot evaluate your answer&lt;/font&gt;'
+            new_cmap.set_hint_and_mode(aid, hint, 'always')
+            return
+
+    try:
+        if type(expected)==list:
+            expect = expected[anum]
+        else:
+            expect = expected
+    except Exception as err:
+        raise Exception('expected answer not evaluated, expected=%s, anum=%s, err=%s' % (expected, anum, str(err)))
+
+    # if expect is a dict, then generate hints by range in addition to 
+    extra_hints = []
+    hint = ''
+    if type(expect)==dict:
+        expect_dict = expect
+        expect = expect_dict['val']
+        extra_hints = expect_dict.get('extra_hints', [])
+
+    if new_cmap.is_correct(aid):
+        # if correct, make sure answer is close, else direct student to look at solution
+        if not is_tight(ans, expect, 0.01):
+            hint = '&lt;font color="green"&gt;Your answer is accepted as correct, but more than 1% from the expected.  Please check the solutions, and use the expected answer in any further calculations.&lt;/font&gt;'
+
+    else:
+        hint = is_close(ans, expect)
+        if not hint and sign:
+            hint = is_sign_correct(ans, expect)
+
+        for eh in extra_hints:
+            range = eh.get('range','')
+            if range:
+                if in_range(ans, range):
+                    hint += '  ' + eh['hint']
+
+    if hint:
+        new_cmap.set_hint_and_mode(aid, hint, 'always')
+
+</script>
+    </p>
+    <p>
+This problem demonstrates the ability to give hints when students enter numerical answers which are too far from the expected result. </p>
+    <p>
+The correct answer is 177. Try typing in 2 instead. </p>
+    <p>
+How does the <a href="http://en.wikipedia.org/wiki/Energy_density">energy density</a> of <a href="http://en.wikipedia.org/wiki/Petroleum">crude oil</a> [mathjaxinline]E_{\rm oil}[/mathjaxinline] compare with the energy density of hot <a href="http://en.wikipedia.org/wiki/Geothermal_energy">geothermal</a> fluid [mathjaxinline]E_{\rm geo}[/mathjaxinline]? </p>
+    <p>
+Model the geothermal fluid as water, and assume its starts at 360 K when pumped from oil/geothermal wells at a rate of 30 l/s, and is cooled to 300 K. </p>
+    <p>
+Give the ratio of energy densities. </p>
+    <p>
+      <p style="display:inline">[mathjaxinline]E_{\rm oil}/E_{\rm geo}[/mathjaxinline] =</p>
+      <numericalresponse inline="1" answer="$ans0">
+        <textline inline="1">
+          <responseparam type="tolerance" default="20%"/>
+        </textline>
+        <hintgroup hintfn="hint_mag0"/>
+      </numericalresponse>
+    </p>
+    <p>
+      <solution>
+        <font color="blue">Answer: </font>
+        <font color="blue">
+          <p>
+If the geothermal fluid is basically just water, then its density at 360&#xA0;K is approximately 1&#xA0;g/cm[mathjaxinline]^3[/mathjaxinline] (really is 0.97&#xA0;g/cm[mathjaxinline]^3[/mathjaxinline] but also changes with temperature as heat is extracted). The heat capacity is approximately [mathjaxinline]c = 4.18~ kJ/kg K[/mathjaxinline]. If the fluid is cooled to a typical temperature of 300&#xA0;K, then the total energy density of the geothermal fluid is </p>
+          <table id="a0000000011" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+            <tr>
+              <td class="equation" style="border:none">[mathjax]\mathcal{E}_{\rm geo} = \rm (4.18~ kJ/kg~ K)(60~ K) = 251~ kJ/kg[/mathjax]</td>
+            </tr>
+          </table>
+          <p>
+ Oil has an energy density of around 43&#xA0;MJ/kg (wikipedia gives 46 MJ/kg). Thus, [mathjaxinline]E_{\rm oil}/E_{\rm geo} \approx 177[/mathjaxinline], so oil has nearly 200 times the energy density of the geothermal fluid. </p>
+        </font>
+      </solution>
+    </p>
+  </text>
+</problem>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<problem display_name="Custom response">
+  <text>
+    <p>
+      <h2>Example of custom response</h2>
+    </p>
+    <p>
+This problem demonstrates the use of a custom python script used for checking the answer. </p>
+    <script type="text/python" system_path="python_lib">
+
+def sumtest(expect,ans):
+    try:
+        (a1,a2) = map(float,ans)
+        return (a1+a2)==10
+    except Exception as err:
+        return {'ok': False, 'msg': 'Sorry, cannot evaluate your input ' + str(ans)}
+
+</script>
+    <p>
+Enter two numbers which add up to 10: </p>
+    <p>
+      <customresponse cfn="sumtest" inline="1" expect="">
+        <p style="display:inline">x =<textline correct_answer="1" inline="1"/></p>
+        <br/>
+        <p style="display:inline">y =<textline correct_answer="9" inline="1"/></p>
+      </customresponse>
+    </p>
+  </text>
+</problem>

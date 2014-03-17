@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<chapter display_name="Basic examples">
+  <sequential display_name="Basic example problems" url_name="Basic_example_problems">
+    <vertical url_name="Basic_example_problems_vertical">
+      <problem url_name="Option_response"/>
+      <problem url_name="String_response"/>
+      <problem url_name="Numerical_response"/>
+      <problem url_name="Custom_response"/>
+    </vertical>
+  </sequential>
+  <sequential display_name="Video and text" url_name="Video_and_text">
+    <vertical url_name="Video_and_text_vertical">
+      <html url_name="Sample_show-hide_text_section"/>
+    </vertical>
+    <vertical url_name="Video_and_text_verticalx">
+      <video url_name="week0_intro"/>
+    </vertical>
+  </sequential>
+</chapter>

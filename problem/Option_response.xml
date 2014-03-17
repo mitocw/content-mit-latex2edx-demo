@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<problem display_name="Option response">
+  <text>
+    <p>
+This is a sample problem, which is worth 10 points. </p>
+    <p>
+Give the correct python <tt class="tt">type</tt> for the following expressions. Select <tt class="tt">noneType</tt> if the expression is illegal. </p>
+    <ul class="itemize">
+      <li>
+        <p>
+          <p style="display:inline">
+            <tt class="tt">3&#xA0;&#xA0;&#xA0;</tt>
+          </p>
+          <optionresponse inline="1">
+            <optioninput options="('noneType','int','float')" correct="int" inline="1"/>
+          </optionresponse>
+        </p>
+      </li>
+      <li>
+        <p>
+          <p style="display:inline">
+            <tt class="tt">5.2&#xA0;&#xA0;&#xA0;</tt>
+          </p>
+          <optionresponse inline="1">
+            <optioninput options="('noneType','int','float')" correct="float" inline="1"/>
+          </optionresponse>
+        </p>
+      </li>
+      <li>
+        <p>
+          <p style="display:inline">
+            <tt class="tt">3/2&#xA0;&#xA0;&#xA0;</tt>
+          </p>
+          <optionresponse inline="1">
+            <optioninput options="('noneType','int','float')" correct="int" inline="1"/>
+          </optionresponse>
+        </p>
+      </li>
+      <li>
+        <p>
+          <p style="display:inline">
+            <tt class="tt">1+[]&#xA0;&#xA0;&#xA0;</tt>
+          </p>
+          <optionresponse inline="1">
+            <optioninput options="('noneType','int','float')" correct="noneType" inline="1"/>
+          </optionresponse>
+        </p>
+      </li>
+    </ul>
+  </text>
+</problem>

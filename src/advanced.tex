@@ -1,0 +1,254 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXchapter}{Advanced Examples}
+
+\begin{edXsection}{Matrices}
+
+\begin{edXvertical}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Matrix expression equality}
+
+This problem demonstrates testing of matrix expression equality.  It properly handles the non-commutativity of matrices.
+
+Let $X$, $Y$, and $Z$ be the usual Pauli matrices,
+\bea
+     	X &=& \mattwoc{0}{1}{1}{0}
+\\ 	Y &=& \mattwoc{0}{-i}{i}{0}
+\\ 	Z &=& \mattwoc{1}{0}{0}{-1}
+\,.
+\eea
+Give an expression $M$ equal to $iZ$.
+
+Valid answers include {\tt X*Y} and {\tt -i*Z}.  But {\tt Y*X} is properly graded as being invalid.
+
+\begin{edXscript}
+
+from matrix_evaluator import *
+
+\end{edXscript}
+
+\edXinline{$M = $ }
+\edXabox{expect="X*Y" 
+  type="custom" cfn="test_formula" 
+  inline='1'
+  math="1" 
+  size="70"
+  options="samples='X,Y,Z,i@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1],0+1j:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1],0+1j#50'!altanswer='-Y*X'!altanswer='i*Z'"
+  preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"
+ }%
+
+  % options="samples='X,Y,i@[1|2;3|4],[0|2;4|6],0+1j:[5|5;5|5],[8|8;8|8],0+1j#50'!altanswer='-Y*X'!altanswer='i*Z'"
+
+\begin{edXsolution}
+
+Either $XY$ or $-YX$ but not $YX$.
+
+\end{edXsolution}
+
+\end{edXproblem}
+
+\end{edXvertical}
+
+\begin{edXvertical}
+
+\begin{edXproblem}{Quantum mechanics ket input}{attempts=1000 weight=10}
+
+Quantum mechanics uses ``ket'' notation like $|\psi\>$ to indicate unit
+vectors.
+
+This problem demonstrates how to use customresponse python code to
+check for equality of formulas with such ket notation, as well as a
+javascript pre-processor to properly format ket expressions.
+
+Type in {\tt (2*|0>+3*|b>)/sqrt(13)} as the answer below.
+
+Multiple correct answer are supported.  {\tt |b>} is also correct, in
+this example.
+
+\edXxml{<font color="red"><b> Remeber to explicitly denote multiplication using [mathjaxinline]\tt *[/mathjaxinline]</b></font>}
+
+\edXbr
+
+\begin{edXscript}
+
+from ket_evaluator import *
+
+\end{edXscript}
+
+\edXinline{$|\lambda\> = $ }
+\edXabox{expect="(2*|0>+3*|b>)/sqrt(13)" 
+  type="custom" cfn="test_ket" inline='1'
+  math="1" 
+  size="60"
+  options="samples='a,b@1,1:20,20#50'!altanswer='|a>'"
+  preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"
+ }%
+
+\begin{edXsolution}
+
+The $\hat{n}$ vector goes through the point $(\theta, \phi)$ specified
+in polar coordinates, with $\phi=0$ and 
+\bea
+   \theta = \cos^{-1} \frac{\omega_0/2}{\sqrt{V^2 + \left(\frac{\omega_0}{2}\right)^2}} 
+   = \tan^{-1}\left(\frac{2V}{\omega_0}\right)
+\,.
+\eea
+In terms $\theta$, the eigenstates may be expressed as
+\bea
+	|\lambda_+\> = \cos\frac{\theta}{2} |a\> +\sin\frac{\theta}{2} |b\>
+\\
+	|\lambda_-\> = -\sin\frac{\theta}{2} |a\> +\cos\frac{\theta}{2} |b\>
+\,.
+\eea
+
+\end{edXsolution}
+
+
+\end{edXvertical}
+
+\end{edXsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{edXsection}{Adaptive hints}
+
+\begin{edXvertical}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{edXproblem}{Magnitude off hint}{attempts=500}
+
+\begin{edXscript}
+ans0 = 177
+expected=[ ans0 ]
+\end{edXscript}
+
+\edXincludepy{XML/magnitude_hint2.py}
+
+This problem demonstrates the ability to give hints when students
+enter numerical answers which are too far from the expected result.
+
+The correct answer is 177.  Try typing in 2 instead.
+
+How does the \href{http://en.wikipedia.org/wiki/Energy_density}{energy
+  density} of \href{http://en.wikipedia.org/wiki/Petroleum}{crude oil}
+$E_{\rm oil}$ compare with the energy density of hot
+\href{http://en.wikipedia.org/wiki/Geothermal_energy}{geothermal}
+fluid $E_{\rm geo}$?
+
+Model the geothermal fluid as water, and assume its starts at 360 K
+when pumped from oil/geothermal wells at a rate of 30 l/s, and is
+cooled to 300 K.
+
+Give the ratio of energy densities.
+
+\edXinline{$E_{\rm oil}/E_{\rm geo}$ =} \edXabox{expect="\$ans0" type="numerical"
+  tolerance='20\%' inline='1' hintfn="hint_mag0" } 
+ 
+\begin{edXsolution}
+
+  If the geothermal fluid is basically just water, then its density at
+  360~K is approximately 1~g/cm$^3$ (really is 0.97~g/cm$^3$ but also
+  changes with temperature as heat is extracted). The heat capacity is
+  approximately $c = 4.18~kJ/kg K$. If the fluid is cooled to a
+  typical temperature of 300~K, then the total energy density of the
+  geothermal fluid is
+\begin{equation}
+\mathcal{E}_{\rm geo} = \rm(4.18~kJ/kg~K)(60~K) = 251~kJ/kg
+\end{equation}
+Oil has an energy density of around 43~MJ/kg (wikipedia gives 46
+MJ/kg).  Thus, $E_{\rm oil}/E_{\rm geo} \approx 177$, so oil has
+nearly 200 times the energy density of the geothermal fluid.  
+
+\end{edXsolution}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXvertical}
+
+\end{edXsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXsection}{Drag and drop input}
+
+\begin{edXvertical}
+
+\begin{edXproblem}{Approximate energy level diagram}{attempts=10}
+
+Use your knowledge of the size of the Lamb shift, and the scale of fine
+structure splittings, to properly label the following energy level diagram.
+
+\edXinclude{XML/ps4-hydrogen-dnd.xml}
+
+\begin{edXsolution}
+
+\begin{itemize}
+
+\item The fine structure splitting raises the four $2P_{3/2}$ states about
+10 GHz above the two $2P_{1/2}$ and two $2S_{1/2}$ states.
+
+\item The Lamb shift raises $2S_{1/2}$ above $2P_{1/2}$ by 1.06 GHz.
+
+\end{itemize}
+
+\end{edXsolution}
+
+\end{edXproblem}
+
+
+\end{edXvertical}
+
+\end{edXsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXsection}{Graphical input using javascript}
+
+\begin{edXvertical}
+
+\begin{edXproblem}{Field independent transitions}{attempts=10}
+
+    There are some values of magnetic field $x$ where the resonance
+    frequency $\Delta E$ for the (magnetic) dipole transition
+    (selection rules $\Delta m = 0, \pm 1$) is first-order field
+    independent (i.e., the leading order term in $\Delta E$ is of
+    $O((\Delta x)^2)$). 
+
+%    Show those values for magnetic field and
+%    corresponding transitions on your figure from part b).
+
+     Identify one such field-independent transition in the figure
+     below, by doing the following:
+     \begin{itemize}
+     \item Use the slider to select a value of $x$
+     \item Choose two different states (A...H) for the transition
+     \item Click ``Check'' to check your answer
+     \end{itemize}
+
+\edXincludepy{XML/test_findep1.py}
+
+% this javascript forces the saved jsinput state to be reloaded after 1.4 seconds
+\edXxml{<script type="text/javascript">setTimeout(function(){ JSInput.jsinputConstructor(\$('section.jsinput'))}, 1400);</script>}
+
+\edXabox{expect="" type="jsinput" cfn="test_findep" 
+  width="650"
+  height="555"
+  gradefn="getinput"
+  get_statefn="getstate"
+  set_statefn="setstate"
+  html_file="/static/html/ps3plot_btran1.html"
+ }%
+
+\end{edXproblem}
+
+
+\end{edXvertical}
+
+\end{edXsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXchapter}

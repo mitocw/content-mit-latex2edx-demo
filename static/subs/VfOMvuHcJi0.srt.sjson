@@ -1,0 +1,50 @@
+{
+    "start": [
+        0, 
+        4000, 
+        9000, 
+        12000, 
+        16000, 
+        19000, 
+        23000, 
+        27000, 
+        31000, 
+        32000, 
+        35000, 
+        39000, 
+        43000, 
+        47000
+    ], 
+    "end": [
+        4000, 
+        9000, 
+        12000, 
+        16000, 
+        19000, 
+        23000, 
+        27000, 
+        31000, 
+        32000, 
+        35000, 
+        39000, 
+        43000, 
+        47000, 
+        50000
+    ], 
+    "text": [
+        "welcome to street writing mathematics in our time together", 
+        "will develop a new way looking at mathematics seeing it as the", 
+        "rigid subject in which only the exact right answer", 
+        "is all that matters will develop a tool box", 
+        "in this tool box will have six tools", 
+        "which will study 1 per week to master these tools", 
+        "through explanations that we've made through your practice", 
+        "and to discussions with the teaching staff and with other students from", 
+        "around the world", 
+        "with these tools in hand", 
+        "we become explores explorers have the", 
+        "patterns in the mathematical world you know the quantitative relationships", 
+        "in the world around us mathematics this application", 
+        "become a joy welcome"
+    ]
+}

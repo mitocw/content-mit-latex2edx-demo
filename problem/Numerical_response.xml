@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<problem display_name="Numerical response">
+  <text>
+    <p>
+      <h2>Example of numerical response</h2>
+    </p>
+    <p>
+What is the numerical value of [mathjaxinline]pi[/mathjaxinline]? </p>
+    <p>
+      <numericalresponse answer="3.14159">
+        <textline>
+          <responseparam type="tolerance" default="0.01"/>
+        </textline>
+      </numericalresponse>
+    </p>
+  </text>
+</problem>

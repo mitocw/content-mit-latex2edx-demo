@@ -1,4 +1,9 @@
+*~
+*.xhtml
+*.xbundle
 *.py[cod]
+
+tmp.xml
 
 # C extensions
 *.so

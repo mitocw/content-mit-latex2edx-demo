@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enviroment shortcut definitions
+
+\newenvironment{ctabular}[1]{\begin{center}\begin{tabular}{#1}}%
+	{\end{tabular}\end{center}}
+
+\newenvironment{ctabularline}[1]{\begin{center}%
+		\begin{tabular}{#1}\hline\hline}%
+	{\hline\hline\end{tabular}\end{center}}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+
+\newcommand{\bfg}{\begin{figure}[htbp]}
+\newcommand{\efg}{\end{figure}}
+
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+
+\newcommand{\ben}{\begin{itemize}%
+	\setlength{\parsep}{0pt}\setlength{\itemsep}{-1pt}}
+\newcommand{\een}{\end{itemize}}
+
+\newcommand{\eitem}{\item[$\Box$]}
+\newcommand{\bitem}{\item[$\bullet$]}
+
+\def\btab{\begin{tabbing}}
+\def\etab{\end{tabbing}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Misc. Symbols
+
+\newcommand{\degc}{\mbox{$^\circ$}C}
+\newcommand{\degk}{K}
+
+\newfont{\spfont}{cmr10}
+\newcommand{\ang}{\mbox{\spfont{\AA}\normalsize}}
+
+\newcommand{\eq}[1]{(\ref{eq:#1})}
+%\newcommand{\syssize}[1]{#1$\times$#1$\times$#1}
+\newcommand{\rcite}[1]{\raisebox{3pt}{\footnotesize[#1]}}
+
+\renewcommand{\d}[1]{\mbox{$_{#1}$}}
+\renewcommand{\u}[1]{\mbox{$^{#1}$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lines
+
+\newcommand{\myline}[1]{\begin{center}
+		\rule[-0.5ex]{#1}{0.2pt}\end{center}}	% typical #1=60ex
+
+\newcommand{\mydelim}[1]{\vspace*{0.6cm}\myline{#1}\vspace*{0.6cm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math: General Calculus
+
+\newcommand{\gam}[1]{\gamma^{#1}}
+\def\g\gamma	% 12-Nov-99 ILC
+
+\def\dms{\displaystyle}
+
+\def\dmu{\partial_\mu}		\def\dnu{\partial_\nu}
+\def\lb{\left[}			\def\rb{\right]}
+\def\lp{\left(}			\def\rp{\right)}
+\def\rar{\rightarrow}
+\def\del{\nabla}
+
+\def\yhat{\hat{y}}		\def\xhat{\hat{x}}
+\def\zhat{\hat{z}}		\def\rhat{\hat{r}}
+\def\thhat{\hat{\theta}}	\def\phhat{\hat{\phi}}
+
+\def\cth{\cos\theta}		\def\sth{\sin\theta}
+
+\def\nhat{\hat{n}}		\def\nhatd{\hat{n}\cdot}
+\def\nhatx{\hat{n}\times}	
+\def\pdt{\partial_t}
+\def\delx{\del\times}		\def\deld{\del\cdot}
+
+\def\Av{\vec{A}}		\def\Jv{\vec{J}}
+\def\Sv{\vec{S}}		\def\Ev{\vec{E}}
+\def\Bv{\vec{B}}		\def\Dv{\vec{D}}
+\def\Hv{\vec{H}}
+
+\def\w{\omega}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math: Quantum Mechanics
+
+\newcommand{\mattwo}[4]{\left[
+	\setlength{\arraycolsep}{4pt}%
+	\begin{array}{rr}{#1}&{#2}\\{#3}&{#4}\end{array}\right]}
+\newcommand{\vectwo}[2]{\left(
+	\begin{array}{r}{#1}\\{#2}\end{array}\right)}
+\newcommand{\matthree}[9]{\left[
+	\begin{array}{rrr}{#1}&{#2}&{#3}\\
+			  {#4}&{#5}&{#6}\\
+			  {#7}&{#8}&{#9}
+			  \end{array}\right]}
+
+\newcommand{\mattwoc}[4]{\left(
+	%\setlength{\arraycolsep}{4pt}%
+	\begin{array}{cc}{#1}&{#2}\\{#3}&{#4}\end{array}\right)}
+
+\newcommand{\vectwoc}[2]{\left(
+	\begin{array}{c}{#1}\\{#2}\end{array}\right)}
+
+\newcommand{\ket}[1]{\mbox{$|#1\rangle$}}
+\newcommand{\bra}[1]{\mbox{$\langle #1|$}}
+\newcommand{\brak}[1]{\mbox{$\langle #1\rangle$}}
+\newcommand{\bk}[2]{\mbox{$\langle #1 | #2 \rangle$}}
+\newcommand{\braket}[3]{\mbox{$\langle #1 | #2 | #3 \rangle$}}
+%\newcommand{\udag}[1]{\mbox{$#1^{\dagger}$}}
+\newcommand{\udag}[1]{#1^{\dagger}}
+
+\def\>{\rangle}
+\def\<{\langle}
+
+\def\dt{\Delta t}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% More math/IT/Phys defs - 16-Jan-94 ILC
+
+\def\lbL{\lb\rule{0pt}{2.4ex}}
+\def\lpL{\left(\rule{0pt}{2.4ex}}
+\def\oh{\frac{1}{2}}
+\newcommand{\combin}[2]{\left(\begin{array}{c}{#1}\\{#2}\end{array}\right)}
+
+\renewcommand{\matthree}[9]{\left[
+	\begin{array}{lll}{#1}&{#2}&{#3}\\
+			  {#4}&{#5}&{#6}\\
+			  {#7}&{#8}&{#9}
+			  \end{array}\right]}
+
+\newcommand{\matthreec}[9]{\left[
+	\begin{array}{ccc}{#1}&{#2}&{#3}\\
+			  {#4}&{#5}&{#6}\\
+			  {#7}&{#8}&{#9}
+			  \end{array}\right]}
+
+\def\nlog{\,\mbox{\rm nlog}\,}
+\def\cnlog#1{\,\lceil\mbox{\rm nlog}\, #1\rceil}
+\def\prob{p}
+\def\ep{\epsilon}
+
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+% 10-Oct-99 ILC
+\def\splus{\sigma^+}
+\def\sminus{\sigma^-}
+\def\ochi{\overline{\chi}}

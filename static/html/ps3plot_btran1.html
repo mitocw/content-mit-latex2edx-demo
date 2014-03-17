@@ -1,0 +1,167 @@
+<head>
+<!-- field insensitive transitions -->
+<!--
+ <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+ <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+-->
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+ <!--<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" /> -->
+<!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.98/jsxgraphcore.js"></script> -->
+
+ <link rel="stylesheet" type="text/css" href="../css/jsxgraph.css" />
+ <script type="text/javascript" src="../js/jsxgraph/loadjsxgraph.js"></script>
+</head>
+<div id="box" class="jxgbox" style="width:600px; height:500px;"></div> 
+
+<div>Transition between: 
+
+  <select id="Astate">
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="G">G</option>
+    <option value="H">H</option>
+  </select>
+
+and
+
+  <select id="Bstate">
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="G">G</option>
+    <option value="H">H</option>
+  </select>
+
+</div>
+<div id="msg"/>
+
+<script type="text/javascript">
+
+var brd = JXG.JSXGraph.initBoard('box', {axis:false, 
+					 showCopyright: false,
+					 showNavigation: false,
+					 zoom: false,
+					 pan: false,
+					 boundingbox:[0,1,1.5,-1]
+});
+
+gI = 0.0009954;
+gJ = 2.002331;
+gfrac = gI/(gI+gJ);
+
+Em = function(x, m, pm) {  return -1/8 - gfrac*m*x + Math.sqrt(1 + m*x + x*x)/2; }
+E2 = function(x){   return -1/8 - gfrac*2*x + (x+1)/2;}
+Em2 = function(x){   return -1/8 - gfrac*(-2)*x + (1-x)/2;}
+
+xaxis = brd.create('axis', [[0, 0], [1000, 0]], {withLabel: true, name: "x",
+						 label: {offset: [230,-20]}
+						});
+
+yaxis = brd.create('axis', [[0, -1000], [0, 1000]], {withLabel: true, name: "E / 2ah",
+						     label: {offset: [10,223]}
+						    });
+
+function addcurve(func){
+    var cur = brd.create('functiongraph', [func, 0], {strokewidth:2,
+						      doAdvancedPlot: false, 
+						      numberPointsHigh: 1600, 
+						      numberPointsLow: 400
+						     });
+    return cur;
+}
+
+function plotit_m(m) {
+    var funcpm = function(x, pm){
+        return -1/8 - gfrac*m*x + pm * Math.sqrt(1 + m*x + x*x)/2;
+    }
+    var func1 = function(x){ return funcpm(x, +1); }
+    var c1 = addcurve(func1);
+    var func2 = function(x){ return funcpm(x, -1); }
+    var c2 =addcurve(func2);
+    return {c1:c1, c2:c2}
+}
+
+var pmm1 = plotit_m(-1);
+var pm0 = plotit_m(0);
+var pmp1 = plotit_m(1);
+
+var pep2 = addcurve(E2);
+var pem2 = addcurve(Em2);
+
+// brd.resizeContainer(500,500);
+// brd.update()
+// brd.fullUpdate()
+// $('#box_navigationbar').style.display='none';
+
+curves = [pep2, pmp1.c1, pm0.c1, pmm1.c1, pem2, pmm1.c2, pm0.c2, pmp1.c2];
+
+// var gla = brd.create('glider',[0.5, 0.5, pep2])
+// 
+// var glb = brd.create('glider',[0.5, 0.5, pmp1.c1])
+// var glc = brd.create('glider',[0.5, 0.5, pm0.c1])
+// var gld = brd.create('glider',[0.5, 0.5, pmm1.c1])
+// 
+// var gle = brd.create('glider',[0.5, 0.25, pem2])
+// 
+// var glf = brd.create('glider',[0.5, -0.5, pmm1.c2])
+// var glg = brd.create('glider',[0.5, -0.5, pm0.c2])
+// var glh = brd.create('glider',[0.5, -0.5, pmp1.c2])
+// 
+// gliders = [gla, glb, glc,, gld, gle, glf, glg, glg, glh]
+
+var xfield = brd.create('slider',[[0.25,-0.25],[0.75,-0.25],[0,1,1.5]], {'name': 'x-value'});
+
+mkpoint = function(curve){
+    return brd.create('point', 
+		      [function(){ return xfield.Value(); }, 
+		       function(){ return curve.Y(xfield.Value()); }], 
+		      {fixed:true}
+		     );
+}
+
+points = curves.forEach(mkpoint);
+
+getinput = function(){
+    input = {x: xfield.Value(),
+	     astate: $('#Astate').val(),
+	     bstate: $('#Bstate').val()
+	    }
+    return JSON.stringify(input);
+}
+
+getstate = function(){
+    state = {input: JSON.parse(getinput()), y:xfield.position};
+    statestr = JSON.stringify(state);
+    // $('#msg').html('getstate ' + statestr);
+    return statestr
+}
+
+setstate = function(statestr){
+    // console.log(statestr);
+    // alert(statestr);
+    // $('#msg').html('setstate ' + statestr);
+    state = JSON.parse(statestr);
+    console.log(state);
+    $('#Astate').val(state.input.astate);
+    $('#Bstate').val(state.input.bstate);
+    xfield.position = state.y;
+    brd.update()
+    xfield.position = state.y;
+    brd.update()
+    console.debug('State updated successfully from saved.');
+}
+
+// debug edX jsinput with this:
+// JSInput.jsinputConstructor($('section.jsinput'))
+
+</script>
+

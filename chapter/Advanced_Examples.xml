@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<chapter display_name="Advanced Examples">
+  <sequential display_name="Matrices" url_name="Matrices">
+    <vertical url_name="Matrices_vertical">
+      <problem url_name="Matrix_expression_equality"/>
+    </vertical>
+    <vertical url_name="Matrices_verticalx">
+      <problem url_name="Quantum_mechanics_ket_input"/>
+    </vertical>
+  </sequential>
+  <sequential display_name="Adaptive hints" url_name="Adaptive_hints">
+    <vertical url_name="Adaptive_hints_vertical">
+      <problem url_name="Magnitude_off_hint"/>
+    </vertical>
+  </sequential>
+  <sequential display_name="Drag and drop input" url_name="Drag_and_drop_input">
+    <vertical url_name="Drag_and_drop_input_vertical">
+      <problem url_name="Approximate_energy_level_diagram"/>
+    </vertical>
+  </sequential>
+  <sequential display_name="Graphical input using javascript" url_name="Graphical_input_using_javascript">
+    <vertical url_name="Graphical_input_using_javascript_vertical">
+      <problem url_name="Field_independent_transitions"/>
+    </vertical>
+  </sequential>
+</chapter>
