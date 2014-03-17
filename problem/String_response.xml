@@ -4,7 +4,7 @@
     <p>
 What state is Detroit in? </p>
     <p>
-      <stringresponse answer="Michigan">
+      <stringresponse answer="Michigan" type="">
         <textline/>
       </stringresponse>
     </p>
