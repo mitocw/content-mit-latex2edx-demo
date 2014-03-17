@@ -1,0 +1,45 @@
+{
+    "course/2014_Spring": {
+        "graceperiod": "0 day 5 hours 5 minutes 0 seconds", 
+        "start": "2014-01-20T02:00", 
+	"end": "2114-06-02T00:00",
+	"enrollment_end": "2114-05-12T00:00", 
+        "rerandomize": "once", 
+	"attempts": 10,
+        "showanswer": "attempted", 
+        "display_name": "latex2edx demo course", 
+        "allow_anonymous": false,
+        "allow_anonymous_to_peers": true,
+	"ispublic": true,
+	
+	"tabs" : [
+	    {"type": "courseware"},       
+	    {"type": "course_info", "name": "Course Info"},
+            {"name": "Progress", "type": "progress"}
+	],
+	
+	"discussion_blackouts" : [
+            ["2000-11-01T12:00", "2912-11-05T06:30"],
+            ["2013-01-10T09:00", "2013-01-14T12:00"]
+        ]
+    }, 
+    
+    
+    "chapter/Basic_examples": {
+	"start": "2014-01-30T12:00"
+    }, 
+
+    "sequential/Basic_example_problems": {
+	"start":      "2014-02-04T00:00",
+	"due":        "2114-02-24T21:30",
+	"showanswer": "closed",
+	"format":     "EX",
+	"graded":     "true",
+	"attempts":   "10",
+	"graceperiod": "5 hours"},
+
+    "chapter/Problem_set_99": {
+	"start": "2115-12-24T00:00"
+    }
+
+}
