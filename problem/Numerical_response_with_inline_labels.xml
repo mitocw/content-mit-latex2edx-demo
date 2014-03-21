@@ -1,0 +1,39 @@
+<problem display_name="Numerical response with inline labels">
+  <text>
+    <p>
+Numerical response questions can have inline labels, both before and after the input box: </p>
+    <ul class="itemize">
+      <li>
+        <p>
+          <p style="display:inline">[mathjaxinline]^2P_{3/2}~ ~ F=3[/mathjaxinline] [mathjaxinline]~ ~ ~ ~ ~  g=[/mathjaxinline] </p>
+          <numericalresponse inline="1" answer="0.66666">
+            <textline inline="1">
+              <responseparam type="tolerance" default="3%"/>
+            </textline>
+          </numericalresponse>
+          <p style="display:inline">Hz</p>
+        </p>
+      </li>
+      <li>
+        <p>
+          <p style="display:inline">[mathjaxinline]^2S_{1/2}~ ~ F=2[/mathjaxinline] [mathjaxinline]~ ~ ~ ~ ~  g=[/mathjaxinline] </p>
+          <numericalresponse inline="1" answer="0.5">
+            <textline inline="1">
+              <responseparam type="tolerance" default="3%"/>
+            </textline>
+          </numericalresponse>
+          <p style="display:inline">Joules/sec</p>
+        </p>
+      </li>
+    </ul>
+    <p>
+      <solution>
+        <font color="blue">Answer: </font>
+        <font color="blue">
+          <p>
+For the stretched states the formula is unnecessary: all the angular momenta are then aligned with each other and their magnetic moments just add. </p>
+        </font>
+      </solution>
+    </p>
+  </text>
+</problem>

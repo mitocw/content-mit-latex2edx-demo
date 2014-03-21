@@ -1,0 +1,18 @@
+<problem display_name="Formula response">
+  <text>
+    <p>
+This problem demonstrates the use of a the &#x201C;formula response" problem. </p>
+    <p>
+Let [mathjaxinline]f(x) = a x^2 + bx + c[/mathjaxinline]. Assume the coefficients [mathjaxinline]a[/mathjaxinline], [mathjaxinline]b[/mathjaxinline], and [mathjaxinline]c[/mathjaxinline] are positive. Give an equation for the positive root [mathjaxinline]\lambda[/mathjaxinline] such that [mathjaxinline]f(\lambda )=0[/mathjaxinline]: </p>
+    <p>
+Use <tt class="tt">^</tt> for exponentiation, e.g. <tt class="tt">x^2</tt> denotes [mathjaxinline]x^2[/mathjaxinline]. Explicitly include multiplication using [mathjaxinline]{\tt *}[/mathjaxinline], e.g. [mathjaxinline]{\tt x*y}[/mathjaxinline] is [mathjaxinline]xy[/mathjaxinline]. Standard mathematical functions may be employed, e.g. [mathjaxinline]{\tt sin(x)}[/mathjaxinline], [mathjaxinline]{\tt sqrt(x)}[/mathjaxinline], etc. </p>
+    <p>
+      <p style="display:inline">[mathjaxinline]\lambda =[/mathjaxinline] </p>
+      <formularesponse inline="1" type="cs" samples="a,b,c@1,1,1:20,20,20#50" answer="-b + sqrt(b^2-4*a*c)">
+        <formulaequationinput size="60" inline="1" math="1">
+          <responseparam type="tolerance" default="0.01"/>
+        </formulaequationinput>
+      </formularesponse>
+    </p>
+  </text>
+</problem>
