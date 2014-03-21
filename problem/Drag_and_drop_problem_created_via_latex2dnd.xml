@@ -17,13 +17,13 @@ Complete this to give the correct equation for the roots of a quadratic polynomi
             <draggable id="facp" icon="/static/images/quadratic/quadratic_dnd_label7.png"/>
             <draggable id="ta" icon="/static/images/quadratic/quadratic_dnd_label8.png"/>
             <draggable id="tam" icon="/static/images/quadratic/quadratic_dnd_label9.png"/>
-            <target id="1" x="96" y="26" w="167" h="101"/>
+            <target id="1" x="70" y="19" w="123" h="74"/>
             <!-- answer=term1 -->
-            <target id="2" x="386" y="26" w="168" h="101"/>
+            <target id="2" x="283" y="19" w="123" h="74"/>
             <!-- answer=term2 -->
-            <target id="3" x="581" y="26" w="168" h="101"/>
+            <target id="3" x="427" y="19" w="122" h="74"/>
             <!-- answer=fac -->
-            <target id="4" x="339" y="175" w="167" h="102"/>
+            <target id="4" x="249" y="129" w="122" h="74"/>
             <!-- answer=ta -->
           </drag_and_drop_input>
           <answer>
