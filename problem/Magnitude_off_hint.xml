@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <problem display_name="Magnitude off hint" attempts="500">
   <text>
     <script type="text/python" system_path="python_lib">

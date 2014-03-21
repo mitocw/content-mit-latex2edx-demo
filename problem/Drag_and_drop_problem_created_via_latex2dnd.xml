@@ -1,0 +1,44 @@
+<problem display_name="Drag and drop problem created via latex2dnd" attempts="1000">
+  <text>
+    <p>
+The <a href="https://github.com/mitocw/latex2dnd">latex2dnd</a> package can be used to generate edX <a href="http://edx.readthedocs.org/projects/devdata/en/latest/course_data_formats/drag_and_drop/drag_and_drop_input.html">drag-and-drop</a> problems. These problems are very convenient for complex equations, or for labeling of graphical images: </p>
+    <p>
+Complete this to give the correct equation for the roots of a quadratic polynomial [mathjaxinline]ax^2 + bx + c[/mathjaxinline]: </p>
+    <p>
+      <span>
+        <customresponse>
+          <drag_and_drop_input img="/static/images/quadratic/quadratic_dnd.png" target_outline="false" one_per_target="true" no_labels="true" label_bg_color="rgb(222, 139, 238)">
+            <draggable id="term1" icon="/static/images/quadratic/quadratic_dnd_label1.png"/>
+            <draggable id="term1p" icon="/static/images/quadratic/quadratic_dnd_label2.png"/>
+            <draggable id="term2" icon="/static/images/quadratic/quadratic_dnd_label3.png"/>
+            <draggable id="dubexp" icon="/static/images/quadratic/quadratic_dnd_label4.png"/>
+            <draggable id="dubsub" icon="/static/images/quadratic/quadratic_dnd_label5.png"/>
+            <draggable id="fac" icon="/static/images/quadratic/quadratic_dnd_label6.png"/>
+            <draggable id="facp" icon="/static/images/quadratic/quadratic_dnd_label7.png"/>
+            <draggable id="ta" icon="/static/images/quadratic/quadratic_dnd_label8.png"/>
+            <draggable id="tam" icon="/static/images/quadratic/quadratic_dnd_label9.png"/>
+            <target id="1" x="96" y="26" w="167" h="101"/>
+            <!-- answer=term1 -->
+            <target id="2" x="386" y="26" w="168" h="101"/>
+            <!-- answer=term2 -->
+            <target id="3" x="581" y="26" w="168" h="101"/>
+            <!-- answer=fac -->
+            <target id="4" x="339" y="175" w="167" h="102"/>
+            <!-- answer=ta -->
+          </drag_and_drop_input>
+          <answer>
+caset = [{'term1': '1'}, {'term2': '2'}, {'fac': '3'}, {'ta': '4'}]
+ca = [ {"draggables": ca.keys(),"targets": ca.values(),"rule":"exact"} for ca in caset ]
+if draganddrop.grade(submission[0], ca):
+    correct = ["correct"]
+else:
+    correct = ["incorrect"]
+</answer>
+        </customresponse>
+        <solution>
+          <img src="/static/images/quadratic/quadratic_dnd_sol.png"/>
+        </solution>
+      </span>
+    </p>
+  </text>
+</problem>

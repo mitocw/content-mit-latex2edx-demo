@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<problem display_name="Graphical input via jsxgraph" attempts="10">
+<problem display_name="Graphical input via jsxgraph" attempts="1000">
   <text>
     <p>
 The <a href="http://edx.readthedocs.org/projects/devdata/en/latest/course_data_formats/jsinput.html">jsinput</a> framework provides a very convenient way to employ virtually arbitrary javascript code as a user interface for input into edX auto-graded problems. </p>
