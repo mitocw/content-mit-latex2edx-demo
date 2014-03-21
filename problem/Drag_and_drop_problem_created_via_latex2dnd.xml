@@ -3,6 +3,46 @@
     <p>
 The <a href="https://github.com/mitocw/latex2dnd">latex2dnd</a> package can be used to generate edX <a href="http://edx.readthedocs.org/projects/devdata/en/latest/course_data_formats/drag_and_drop/drag_and_drop_input.html">drag-and-drop</a> problems. These problems are very convenient for complex equations, or for labeling of graphical images: </p>
     <p>
+      <table class="wikitable collapsible collapsed">
+        <tbody>
+          <tr>
+            <th> LaTeX code for quadratic polynomial example [<a href="javascript:$('#dndex').toggle()" id="dndexl">show</a>]</th>
+          </tr>
+          <tr id="dndex" style="display:none">
+            <td>Download <a href="https://github.com/mitocw/latex2dnd/blob/master/latex2dnd/testtex/quadratic.tex">from github</a>: <pre>
+\documentclass{article}
+\input{latex2dnd}
+
+\begin{document}
+
+% define drag-drop labels
+
+\DDlabel{term1}{$-b$}
+\DDlabel{term1p}{$+b$}
+\DDlabel{term2}{$b^2$}
+\DDlabel{dubexp}{$b^{2^\alpha}$}
+\DDlabel{dubsub}{$b_{2_\alpha}$}
+\DDlabel{fac}{$-4ac$}
+\DDlabel{facp}{$+4ac$}
+\DDlabel{ta}{$+2a$}
+\DDlabel{tam}{$-2a$}
+
+% shorthand macro to make all boxes the same size (6 by 4)
+\newcommand\DDB[2]{\DDbox{#1}{6ex}{4ex}{#2}}
+
+% the formula with boxes
+$$\lambda = \frac{\DDB{1}{term1}\pm \sqrt{\DDB{2}{term2}\DDB{3}{fac}}}{\DDB{4}{ta}}$$
+
+% output labels, with fixed box heights
+\writeDDlabels[4.3ex]
+
+\end{document}
+</pre> </td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <p>
 Complete this to give the correct equation for the roots of a quadratic polynomial [mathjaxinline]ax^2 + bx + c[/mathjaxinline]: </p>
     <p>
       <span>
