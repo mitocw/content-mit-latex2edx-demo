@@ -42,8 +42,14 @@ Explanations can also be provided inside:
 
 \end{edXsolution}
 
-
 \end{edXproblem}
+
+
+\end{edXvertical}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXvertical}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -56,6 +62,40 @@ What is the numerical value of $\pi$?
 \edXabox{expect="3.14159" type="numerical" tolerance='0.01' }
 
 \end{edXproblem}
+
+
+\begin{edXproblem}{Numerical response with inline labels}{}
+
+Numerical response questions can have inline labels, both before and after the input box:
+
+\begin{itemize}
+
+\item  
+
+    \edXinline{$^2P_{3/2}~~F=3$ $~~~~~ g= $ } \edXabox{expect="0.66666" type="numerical" tolerance='3\%' inline='1' }
+    \edXinline{Hz}
+
+\item  
+
+    \edXinline{$^2S_{1/2}~~F=2$ $~~~~~ g= $ } \edXabox{expect="0.5" type="numerical" tolerance='3\%' inline='1' }
+    \edXinline{Joules/sec}
+
+\end{itemize}
+
+\begin{edXsolution}
+
+For the stretched states the formula is unnecessary: all the angular momenta are
+then aligned with each other and their magnetic moments just add. 
+
+\end{edXsolution}
+
+\end{edXproblem}
+
+\end{edXvertical}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXvertical}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -85,6 +125,34 @@ Enter two numbers which add up to 10:
   prompts="x = ","y = "
   cfn="sumtest"
   inline="1" }%
+
+\end{edXproblem}
+
+\end{edXvertical}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXvertical}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Formula response}
+
+This problem demonstrates the use of a the ``formula response'' problem.
+
+Let $f(x) = a x^2 + bx + c$.  Assume the coefficients $a$, $b$, and
+$c$ are positive.  Give an equation for the positive root $\lambda$
+such that $f(\lambda)=0$:
+
+Use {\tt ^} for exponentiation, e.g. {\tt x^2} denotes $x^2$.
+Explicitly include multiplication using ${\tt *}$, e.g. ${\tt x*y}$ is
+$xy$.  Standard mathematical functions may be employed, e.g. ${\tt sin(x)}$,
+${\tt sqrt(x)}$, etc.
+
+\edXinline{$\lambda =$ }
+\edXabox{expect="-b + sqrt(b^2-4*a*c)" type="formula"
+  samples="a,b,c@1,1,1:20,20,20#50" size="60" tolerance='0.01' inline='1'
+  math="1" feqin="1" }%
 
 \end{edXproblem}
 

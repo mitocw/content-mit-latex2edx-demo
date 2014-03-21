@@ -3,8 +3,16 @@
     <vertical url_name="Basic_example_problems_vertical">
       <problem url_name="Option_response"/>
       <problem url_name="String_response"/>
+    </vertical>
+    <vertical url_name="Basic_example_problems_verticalx">
       <problem url_name="Numerical_response"/>
+      <problem url_name="Numerical_response_with_inline_labels"/>
+    </vertical>
+    <vertical url_name="Basic_example_problems_verticalxx">
       <problem url_name="Custom_response"/>
+    </vertical>
+    <vertical url_name="Basic_example_problems_verticalxxx">
+      <problem url_name="Formula_response"/>
     </vertical>
   </sequential>
   <sequential display_name="Video and text" url_name="Video_and_text">
