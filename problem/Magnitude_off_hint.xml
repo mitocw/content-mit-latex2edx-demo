@@ -120,7 +120,7 @@ def hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=0, sign=False
     <p>
 This problem demonstrates the ability to give hints when students enter numerical answers which are too far from the expected result. </p>
     <p>
-The correct answer is 177. Try typing in 2 instead. </p>
+The correct answer is 177. Try typing in 1 instead (you'll get a hint). </p>
     <p>
 How does the <a href="http://en.wikipedia.org/wiki/Energy_density">energy density</a> of <a href="http://en.wikipedia.org/wiki/Petroleum">crude oil</a> [mathjaxinline]E_{\rm oil}[/mathjaxinline] compare with the energy density of hot <a href="http://en.wikipedia.org/wiki/Geothermal_energy">geothermal</a> fluid [mathjaxinline]E_{\rm geo}[/mathjaxinline]? </p>
     <p>
