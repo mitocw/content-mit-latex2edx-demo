@@ -4,7 +4,7 @@
       <h2>Example of numerical response</h2>
     </p>
     <p>
-What is the numerical value of [mathjaxinline]pi[/mathjaxinline]? </p>
+What is the numerical value of [mathjaxinline]\pi[/mathjaxinline]? </p>
     <p>
       <numericalresponse answer="3.14159">
         <textline>
