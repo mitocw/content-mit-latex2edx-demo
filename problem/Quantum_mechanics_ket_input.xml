@@ -854,7 +854,7 @@ def ket_evaluator_test():
     </p>
     <p>
       <p style="display:inline">[mathjaxinline]|\lambda \rangle  =[/mathjaxinline] </p>
-      <customresponse cfn="test_ket" inline="1" expect="(2*|0&amp;gt;+3*|b&amp;gt;)/sqrt(13)" options="samples='a,b@1,1:20,20#50'!altanswer='|a&amp;gt;'" cfn_extra_args="options">
+      <customresponse cfn="test_ket" inline="1" expect="(2*|0&amp;gt;+3*|b&amp;gt;)/sqrt(13)" options="samples='a,b@1,1:20,20#40'!altanswer='|a&amp;gt;'" cfn_extra_args="options">
         <textline size="60" correct_answer="(2*|0&amp;gt;+3*|b&amp;gt;)/sqrt(13)" inline="1" math="1" preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"/>
       </customresponse>
     </p>
