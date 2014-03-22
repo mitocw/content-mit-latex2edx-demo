@@ -608,12 +608,16 @@ def matrix_evaluator(variables, functions, math_expr, case_sensitive=False):
     can handle matrices, like expm for matrix exponentiation.
     '''
     #mfunctions = {'exp': mfun(scipy.linalg.expm3),
-    mfunctions = {'exp': mfun(scipy.linalg.expm),
-                  'cos': mfun(scipy.linalg.cosm),
-                  'sin': mfun(scipy.linalg.sinm),
-                  'tan': mfun(scipy.linalg.tanm),
-                  'sqrt': mfun(scipy.linalg.sqrtm),
-                 }
+    if hasattr(scipy,'linalg'):
+        mfunctions = {'exp': mfun(scipy.linalg.expm),
+                      'cos': mfun(scipy.linalg.cosm),
+                      'sin': mfun(scipy.linalg.sinm),
+                      'tan': mfun(scipy.linalg.tanm),
+                      'sqrt': mfun(scipy.linalg.sqrtm),
+                     }
+    else:
+        mfunctions = {}	# oh well
+
     return evaluator(variables, mfunctions, math_expr, case_sensitive)
 
 
