@@ -203,8 +203,11 @@ In terms $\theta$, the eigenstates may be expressed as
 \begin{edXproblem}{Magnitude off hint}{attempts=500}
 
 \begin{edXscript}
+eh = {'range':[ 280, 290 ],
+      'hint': "You are assuming too low a temperature for the hot dry rock"
+     }
 ans0 = 177
-expected=[ ans0 ]
+expected=[ {'val': ans0, 'extra_hints': [eh]} ]
 \end{edXscript}
 
 \edXincludepy{XML/magnitude_hint2.py}
@@ -212,7 +215,7 @@ expected=[ ans0 ]
 This problem demonstrates the ability to give hints when students
 enter numerical answers which are too far from the expected result.
 
-The correct answer is 177.  Try typing in 1 instead (you'll get a hint).
+The correct answer is 177.  Try typing in 1 or 280 instead (you'll get hints).
 
 How does the \href{http://en.wikipedia.org/wiki/Energy_density}{energy
   density} of \href{http://en.wikipedia.org/wiki/Petroleum}{crude oil}

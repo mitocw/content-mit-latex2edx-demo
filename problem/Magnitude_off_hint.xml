@@ -1,8 +1,11 @@
 <problem display_name="Magnitude off hint" attempts="500">
   <text>
     <script type="text/python" system_path="python_lib">
+eh = {'range':[ 280, 290 ],
+      'hint': "You are assuming too low a temperature for the hot dry rock"
+     }
 ans0 = 177
-expected=[ ans0 ]
+expected=[ {'val': ans0, 'extra_hints': [eh]} ]
 </script>
     <p>
       <script>

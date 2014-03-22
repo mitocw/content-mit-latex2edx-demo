@@ -868,12 +868,12 @@ Note that correctness of the student's input expression is checked by python cod
 The [mathjaxinline]\hat{n}[/mathjaxinline] vector goes through the point [mathjaxinline](\theta , \phi )[/mathjaxinline] specified in polar coordinates, with [mathjaxinline]\phi =0[/mathjaxinline] and </p>
           <table id="a0000000006" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
             <tr id="a0000000007">
-              <td style="border:none">&#xA0;</td>
-              <td style="border:none">
+              <td style="width:40%; border:none">&#xA0;</td>
+              <td style="vertical-align:middle;                                    text-align:right; border:none">
 	    [mathjaxinline]\displaystyle \theta = \cos ^{-1} \frac{\omega _0/2}{\sqrt {V^2 + \left(\frac{\omega _0}{2}\right)^2}} = \tan ^{-1}\left(\frac{2V}{\omega _0}\right) \, .[/mathjaxinline]
         </td>
-              <td style="border:none">&#xA0;</td>
-              <td style="border:none" class="eqnnum">
+              <td style="width:40%; border:none">&#xA0;</td>
+              <td style="width:20%; border:none" class="eqnnum">
                 <span>(<span>4</span>)</span>
               </td>
             </tr>
@@ -882,22 +882,22 @@ The [mathjaxinline]\hat{n}[/mathjaxinline] vector goes through the point [mathja
 In terms [mathjaxinline]\theta[/mathjaxinline], the eigenstates may be expressed as </p>
           <table id="a0000000008" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
             <tr id="a0000000009">
-              <td style="border:none">&#xA0;</td>
-              <td style="border:none">
+              <td style="width:40%; border:none">&#xA0;</td>
+              <td style="vertical-align:middle;                                    text-align:right; border:none">
 	    [mathjaxinline]\displaystyle |\lambda _+\rangle  = \cos \frac{\theta }{2} |a\rangle  +\sin \frac{\theta }{2} |b\rangle[/mathjaxinline]
         </td>
-              <td style="border:none">&#xA0;</td>
-              <td style="border:none" class="eqnnum">
+              <td style="width:40%; border:none">&#xA0;</td>
+              <td style="width:20%; border:none" class="eqnnum">
                 <span>(<span>5</span>)</span>
               </td>
             </tr>
             <tr id="a0000000010">
-              <td style="border:none">&#xA0;</td>
-              <td style="border:none">
+              <td style="width:40%; border:none">&#xA0;</td>
+              <td style="vertical-align:middle;                                    text-align:right; border:none">
 	    [mathjaxinline]\displaystyle |\lambda _-\rangle  = -\sin \frac{\theta }{2} |a\rangle  +\cos \frac{\theta }{2} |b\rangle  \, .[/mathjaxinline]
         </td>
-              <td style="border:none">&#xA0;</td>
-              <td style="border:none" class="eqnnum">
+              <td style="width:40%; border:none">&#xA0;</td>
+              <td style="width:20%; border:none" class="eqnnum">
                 <span>(<span>6</span>)</span>
               </td>
             </tr>
