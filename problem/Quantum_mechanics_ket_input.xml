@@ -604,7 +604,34 @@ def is_formula_equal(expected, given, samples, cs=True, tolerance='0.01', evalfu
 #
 
 import numpy
+import scipy
+#from calc2 import evaluator
 #from evaluator2 import is_formula_equal
+
+def mfun(linalgfun):
+    '''
+    scipy.linalg functions return arrays instead of numpy matrix objects.
+    force objects to be matrices, so that the evaluator's is_final function
+    knows when to stop.  We consistently keep objects as being numbers
+    or matrices, and not arrays.
+    '''
+    return lambda x: numpy.matrix(linalgfun(x))
+
+
+def matrix_evaluator(variables, functions, math_expr, case_sensitive=False):
+    '''
+    Do same as normal evaluator, but override some functions with ones which
+    can handle matrices, like expm for matrix exponentiation.
+    '''
+    #mfunctions = {'exp': mfun(scipy.linalg.expm3),
+    mfunctions = {'exp': mfun(scipy.linalg.expm),
+                  'cos': mfun(scipy.linalg.cosm),
+                  'sin': mfun(scipy.linalg.sinm),
+                  'tan': mfun(scipy.linalg.tanm),
+                  'sqrt': mfun(scipy.linalg.sqrtm),
+                 }
+    return evaluator(variables, mfunctions, math_expr, case_sensitive)
+
 
 def test_formula(expect, ans, options=None):
     '''
@@ -639,13 +666,73 @@ def test_formula(expect, ans, options=None):
 
     for acceptable in acceptable_answers:
         try:
-            ok = is_formula_equal(acceptable, ans, samples, cs=True, tolerance=tolerance)
+            ok = is_formula_equal(acceptable, ans, samples, cs=True, tolerance=tolerance, evalfun=matrix_evaluator)
         except Exception as err:
             return {'ok': False, 'msg': "Sorry, could not evaluate your expression.  Error %s" % str(err)}
         if ok:
             return {'ok':ok, 'msg': ''}
 
     return {'ok':ok, 'msg': ''}
+
+def matrix_test():
+    x = numpy.matrix('[1,2;3,4]')
+    y = numpy.matrix('[4,9;2,7]')
+    samples="x,y@[1|2;3|4],[0|2;4|6]:[5|5;5|5],[8|8;8|8]#50"
+
+    print "test_formula gives %s" %  test_formula('x*y', 'x*y', options="samples='x,y,i@[1|2;3|4],[0|2;4|6],0+1j:[5|5;5|5],[8|8;8|8],0+1j#50'!altanswer='-y*x'")
+
+    return x,y, samples
+
+def matrix_test2():
+    expect = "exp(i*H_0*t/hbar) * H * exp(-i*H_0*t/hbar) - H_0"
+    ans2   = "exp(i*H_0*t/hbar) * (H-H_0) * exp(-i*H_0*t/hbar)"
+    samples = "hbar,t,H_0,H@1,0.1,[1|2;3|4],[1|3;4|6]:1,2,[5|5;5|5],[3|3;4|4]#50"
+    options = "samples='%s'!tolerance='2%%'" % samples
+    ans_wrong = "exp(i*H_0*t/hbar) * exp(-i*H_0*t/hbar) * H - H_0"
+    ans = "-H_0 + exp(i*H_0*t/hbar) * H * exp(-i*H_0*t/hbar)"
+    print "ans_wrong gives %s" %  test_formula(expect,
+                                                  ans_wrong,
+                                                  options=options)
+    print "ans gives %s" %  test_formula(expect,
+                                                  ans,
+                                                  options=options)
+    print "ans2 gives %s" %  test_formula(expect,
+                                                  ans2,
+                                                  options=options)
+    return expect, samples, ans, ans2
+
+def matrix_test3():
+    f1 = "exp(i*Y) * H * exp(-i*Y) + Y"
+    f2 = "exp(i*Y) * (H+Y) * exp(-i*Y)"
+    H = numpy.matrix('[1,2;3,4]')
+    Y = numpy.matrix('[5,6;7,8]')
+    x1 = matrix_evaluator({'H': H, 'Y': Y}, {}, f1)
+    x2 = matrix_evaluator({'H': H, 'Y': Y}, {}, f2)
+    print "f1 = ", x1
+    print "f2 = ", x2
+    return f1, f2, x1, x2, H, Y
+
+def matrix_test4():
+    expect = "exp(i*H_0*t/hbar) * H * exp(-i*H_0*t/hbar) - H_0"
+    ans2   = "exp(i*H_0*t/hbar) * (H-H_0) * exp(-i*H_0*t/hbar)"
+    H0 = numpy.matrix('[1,2;3,4]')
+    H = numpy.matrix('[1,3;4,6]')
+
+    H0 = numpy.matrix('[5,5;5,5]')
+    H = numpy.matrix('[3,3;4,4]')
+    vars = {'H': H, 'H_0': H0, 'hbar': 1, 't': 2}
+    x1 = matrix_evaluator(vars, {}, expect)
+    x2 = matrix_evaluator(vars, {}, ans2)
+    print "expect = ", x1
+    print "ans2 = ", x2
+    return expect, ans2, H0, H, vars
+
+def matrix_test5():
+    expect = "exp(i*H_0*t/hbar) * H * exp(-i*H_0*t/hbar) - H_0"
+    ans2   = "exp(i*H_0*t/hbar) * (H-H_0) * exp(-i*H_0*t/hbar)"
+    samples = "hbar,t,H_0,H@1,1,[1|2;3|4],[1|3;4|6]:1,1,[1|2;3|4],[1|3;4|6]#2"
+    options = "samples='%s'!tolerance='0.1'" % samples
+    print "ans2 gives %s" %  test_formula(expect, ans2,options=options)
 
 def matrix_test():
     x = numpy.matrix('[1,2;3,4]')

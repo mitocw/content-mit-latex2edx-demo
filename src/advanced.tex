@@ -21,7 +21,10 @@ Let $X$, $Y$, and $Z$ be the usual Pauli matrices,
 \eea
 Give an expression $M$ equal to $iZ$.
 
-Valid answers include {\tt X*Y} and {\tt -i*Z}.  But {\tt Y*X} is properly graded as being invalid.
+Valid answers include {\tt\LARGE X*Y} and {\tt\LARGE i*Z}.  But {\tt\LARGE Y*X} is properly graded as being invalid.
+
+Note that {\LARGE\tt  X * exp(-i*Y) * Y * exp(i*Y)} also works (matrix
+exponentials do the correct thing)!
 
 % The following code imports matrix_evaluator from the course
 % /python_lib directory of python code.
@@ -48,13 +51,15 @@ Valid answers include {\tt X*Y} and {\tt -i*Z}.  But {\tt Y*X} is properly grade
 \edXincludepy{../python_lib/all_evaluators_in_one.py}
 
 
+%  options="samples='X,Y,Z@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1]:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1]j#50'!altanswer='-Y*X'!altanswer='i*Z'"
+
 \edXinline{$M = $ }
 \edXabox{expect="X*Y" 
   type="custom" cfn="test_formula" 
   inline='1'
   math="1" 
   size="70"
-  options="samples='X,Y,Z,i@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1],0+1j:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1],0+1j#50'!altanswer='-Y*X'!altanswer='i*Z'"
+  options="samples='X,Y,Z@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1]:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1]j#50'"
   preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"
  }%
 
