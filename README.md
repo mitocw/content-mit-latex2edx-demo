@@ -36,7 +36,7 @@ Examples included:
 * Numerical response with inline labels
 * Custom response problem with two inputs
 * Formula response problem checking mathematical equations
-* Matrix expression equality testing (for math expressions with nonabelian operators
+* Matrix expression equality testing (for math expressions with nonabelian operators)
 * Quantum mechanics ket input
 * Adaptive hints using "hint_fn" scripts
 * Drag and drop problem created via latex2dnd

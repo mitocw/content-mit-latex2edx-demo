@@ -60,6 +60,31 @@ Valid answers include {\tt X*Y} and {\tt -i*Z}.  But {\tt Y*X} is properly grade
 
   % options="samples='X,Y,i@[1|2;3|4],[0|2;4|6],0+1j:[5|5;5|5],[8|8;8|8],0+1j#50'!altanswer='-Y*X'!altanswer='i*Z'"
 
+\begin{edXshowhide}{studioproblem}{Implementation notes and limits of edX studio}
+The checking of this formula is done using a somewhat extensive python
+script.  The edX platform allows such python scripts to be stored in
+the course /python_lib or /code directory.  This means that each
+problem can simply have a short script with a python ``import'' line
+to retrieve the library functions.
+
+This works very well when you are authoring the course directly in
+XML, and not via uploading to edX Studio.
+
+Unfortunately, the edX Studio system is broken, in that it does
+not allow use of /python_lib or /code directories of python
+code libraries.  Thus, for this demo to work on the edx.org
+Studio system, we are forced to paste all the python code
+in each problem, instead of importing it using normal semantics.
+
+Note that edX Studio also does not allow a hierarchy of directories in
+the /static directory: all files uploaded to Studio are stored flat in
+that directory.  This means that HTML or javascript files which
+attempt to load files from subdirectories will break, when using
+Studio.  
+
+Alas.  Maybe someday Studio will be fixed to work better.  
+\end{edXshowhide}
+
 \begin{edXsolution}
 
 Either $XY$ or $-YX$ but not $YX$.
@@ -136,6 +161,14 @@ this example.
   options="samples='a,b@1,1:20,20#10'!altanswer='|a>'"
   preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"
  }%
+
+Note that correctness of the student's input expression is checked by
+python code running on the server.  edx.org limits CPU time and memory
+available to the code, and thus only 10 random vector samples can be
+checked on this site.  Other systems, such as the residential MITx
+system, are more accommodating, and allow enough resources to check 50
+or more random samples, thus lowering the probability of mistaken
+correctness.
 
 \begin{edXsolution}
 

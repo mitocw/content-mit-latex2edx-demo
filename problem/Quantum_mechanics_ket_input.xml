@@ -859,6 +859,8 @@ def ket_evaluator_test():
       </customresponse>
     </p>
     <p>
+Note that correctness of the student's input expression is checked by python code running on the server. edx.org limits CPU time and memory available to the code, and thus only 10 random vector samples can be checked on this site. Other systems, such as the residential MITx system, are more accommodating, and allow enough resources to check 50 or more random samples, thus lowering the probability of mistaken correctness. </p>
+    <p>
       <solution>
         <font color="blue">Answer: </font>
         <font color="blue">

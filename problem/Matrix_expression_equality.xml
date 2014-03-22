@@ -905,6 +905,29 @@ def ket_evaluator_test():
       </customresponse>
     </p>
     <p>
+      <table class="wikitable collapsible collapsed">
+        <tbody>
+          <tr>
+            <th> Implementation notes and limits of edX studio [<a href="javascript:$('#studioproblem').toggle()" id="studioprobleml">show</a>]</th>
+          </tr>
+          <tr id="studioproblem" style="display:none">
+            <td>
+              <p>
+The checking of this formula is done using a somewhat extensive python script. The edX platform allows such python scripts to be stored in the course /python_lib or /code directory. This means that each problem can simply have a short script with a python &#x201C;import" line to retrieve the library functions. </p>
+              <p>
+This works very well when you are authoring the course directly in XML, and not via uploading to edX Studio. </p>
+              <p>
+Unfortunately, the edX Studio system is broken, in that it does not allow use of /python_lib or /code directories of python code libraries. Thus, for this demo to work on the edx.org Studio system, we are forced to paste all the python code in each problem, instead of importing it using normal semantics. </p>
+              <p>
+Note that edX Studio also does not allow a hierarchy of directories in the /static directory: all files uploaded to Studio are stored flat in that directory. This means that HTML or javascript files which attempt to load files from subdirectories will break, when using Studio. </p>
+              <p>
+Alas. Maybe someday Studio will be fixed to work better. </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <p>
       <solution>
         <font color="blue">Answer: </font>
         <font color="blue">
