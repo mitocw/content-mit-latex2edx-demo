@@ -114,13 +114,26 @@ this example.
 % needed to work on edx.org
 \edXincludepy{../python_lib/all_evaluators_in_one.py}
 
+% Note the samples line below,
+%
+%  options="samples='a,b@1,1:20,20#10'!altanswer='|a>'"
+%
+% This specifies only 10 random samples (the number after #) 
+% whereas to be more certain, one would probably want
+% more samples.  But the edx.org system limits
+% cpu and memory resources of the checking script, and
+% throws an error if the number of samples for ket
+% equality is greater than around this number.
+%
+% On the residential MITx system the number of
+% samples used in this example can be 50 (and maybe higher).
 
 \edXinline{$|\lambda\> = $ }
 \edXabox{expect="(2*|0>+3*|b>)/sqrt(13)" 
   type="custom" cfn="test_ket" inline='1'
   math="1" 
   size="60"
-  options="samples='a,b@1,1:20,20#40'!altanswer='|a>'"
+  options="samples='a,b@1,1:20,20#10'!altanswer='|a>'"
   preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"
  }%
 
