@@ -23,11 +23,30 @@ Give an expression $M$ equal to $iZ$.
 
 Valid answers include {\tt X*Y} and {\tt -i*Z}.  But {\tt Y*X} is properly graded as being invalid.
 
-\begin{edXscript}
+% The following code imports matrix_evaluator from the course
+% /python_lib directory of python code.
+%
+% Using the library makes it possible to efficiently re-use code
+% and write modular code with well-defined scope.
+%
+% This works fine with an LMS using direct import of XML code.
+%
+% Unfortunately, the edX Studio system is broken, in that it does
+% not allow use of /python_lib or /code directories of python
+% code libraries.  Thus, for this demo to work on the edx.org
+% Studio system, we are forced to paste all the python code
+% here, instead of importing it using normal semantics.
+%
+% \begin{edXscript}
+% 
+% from matrix_evaluator import *
+% 
+% \end{edXscript}
 
-from matrix_evaluator import *
+% This is the line which pastes in all the python code,
+% needed to work on edx.org
+\edXincludepy{../python_lib/all_evaluators_in_one.py}
 
-\end{edXscript}
 
 \edXinline{$M = $ }
 \edXabox{expect="X*Y" 
@@ -71,11 +90,30 @@ this example.
 
 \edXbr
 
-\begin{edXscript}
+% The following code imports matrix_evaluator from the course
+% /python_lib directory of python code.
+%
+% Using the library makes it possible to efficiently re-use code
+% and write modular code with well-defined scope.
+%
+% This works fine with an LMS using direct import of XML code.
+%
+% Unfortunately, the edX Studio system is broken, in that it does
+% not allow use of /python_lib or /code directories of python
+% code libraries.  Thus, for this demo to work on the edx.org
+% Studio system, we are forced to paste all the python code
+% here, instead of importing it using normal semantics.
+%
+% \begin{edXscript}
+% 
+% from ket_evaluator import *
+% 
+% \end{edXscript}
 
-from ket_evaluator import *
+% This is the line which pastes in all the python code,
+% needed to work on edx.org
+\edXincludepy{../python_lib/all_evaluators_in_one.py}
 
-\end{edXscript}
 
 \edXinline{$|\lambda\> = $ }
 \edXabox{expect="(2*|0>+3*|b>)/sqrt(13)" 
