@@ -1001,7 +1001,7 @@ def ket_evaluator_test():
       <table class="wikitable collapsible collapsed">
         <tbody>
           <tr>
-            <th> Implementation notes and limits of edX studio [<a href="javascript:$('#studioproblem').toggle()" id="studioprobleml">show</a>]</th>
+            <th> Implementation notes and limits of edX studio [<a onclick="javascript:$('#studioproblem').toggle();" href="javascript:void(0);" id="studioprobleml">show</a>]</th>
           </tr>
           <tr id="studioproblem" style="display:none">
             <td>

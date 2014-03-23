@@ -8,7 +8,7 @@ Pieces of text (and images) can be put inside a &#x201C;showhide" section, which
     <table class="wikitable collapsible collapsed">
       <tbody>
         <tr>
-          <th> Hints and instructions for entering expressions [<a href="javascript:$('#ps4starkket').toggle()" id="ps4starkketl">show</a>]</th>
+          <th> Hints and instructions for entering expressions [<a onclick="javascript:$('#ps4starkket').toggle();" href="javascript:void(0);" id="ps4starkketl">show</a>]</th>
         </tr>
         <tr id="ps4starkket" style="display:none">
           <td>
@@ -16,12 +16,12 @@ Pieces of text (and images) can be put inside a &#x201C;showhide" section, which
 Note that rotations leave points on the axis of rotation unmoved. For a point [mathjaxinline](\theta , \phi )[/mathjaxinline] specified in polar coordinates on the surface of the <a href="http://en.wikipedia.org/wiki/Bloch_sphere">Bloch sphere</a>, the corresponding two-level quantum state is </p>
             <table id="a0000000002" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
               <tr id="a0000000003">
-                <td style="border:none">&#xA0;</td>
-                <td style="border:none">
+                <td style="width:40%; border:none">&#xA0;</td>
+                <td style="vertical-align:middle;                                    text-align:right; border:none">
 	    [mathjaxinline]\displaystyle |\psi \rangle  = \cos \frac{\theta }{2} |a\rangle  + e^{i\phi }\sin \frac{\theta }{2} |b\rangle  \, .[/mathjaxinline]
         </td>
-                <td style="border:none">&#xA0;</td>
-                <td style="border:none" class="eqnnum">
+                <td style="width:40%; border:none">&#xA0;</td>
+                <td style="width:20%; border:none" class="eqnnum">
                   <span>(<span>1</span>)</span>
                 </td>
               </tr>
