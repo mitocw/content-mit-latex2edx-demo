@@ -1,0 +1,35 @@
+<problem display_name="Multiple choice single answer">
+  <text>
+    <p>
+What color is the sky on a clear sunny day? </p>
+    <script type="text/python" system_path="python_lib">
+
+aset = [ 'Red',
+         'Green',
+         'Blue',
+         'Black',
+      ]
+
+(ans1,ans2,ans3,ans4) = aset
+
+</script>
+    <p>
+      <multiplechoiceresponse>
+        <choicegroup direction="vertical">
+          <choice correct="false" name="1">
+            <text> $ans1</text>
+          </choice>
+          <choice correct="false" name="2">
+            <text> $ans2</text>
+          </choice>
+          <choice correct="true" name="3">
+            <text> $ans3</text>
+          </choice>
+          <choice correct="false" name="4">
+            <text> $ans4</text>
+          </choice>
+        </choicegroup>
+      </multiplechoiceresponse>
+    </p>
+  </text>
+</problem>

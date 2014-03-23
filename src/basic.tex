@@ -51,6 +51,61 @@ Explanations can also be provided inside:
 
 \begin{edXvertical}
 
+
+\begin{edXproblem}{Multiple choice single answer}{}
+
+What color is the sky on a clear sunny day?
+
+\begin{edXscript}
+
+aset = [ 'Red',
+         'Green',
+         'Blue',
+         'Black',
+      ]
+
+(ans1,ans2,ans3,ans4) = aset
+
+\end{edXscript}
+
+\edXabox{type="multichoice" 
+  expect="\$ans3"
+  options="\$ans1","\$ans2","\$ans3","\$ans4" }
+
+\end{edXproblem}
+
+
+\begin{edXproblem}{Multiple choice multiple answers}{}
+
+What are the best computer programming language?  Choose {\em all} which apply:
+
+\begin{edXscript}
+
+aset = [ 'Cobol',
+         'Pascal',
+         'Python',
+         'C++',
+         'Clu',
+         'Forth',
+      ]
+
+(ans1,ans2,ans3,ans4,ans5,ans6) = aset
+
+\end{edXscript}
+
+\edXabox{type="multichoice" 
+  expect="\$ans3","\$ans4"
+  options="\$ans1","\$ans2","\$ans3","\$ans4","\$ans5","\$ans6"
+ }
+
+\end{edXproblem}
+
+\end{edXvertical}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXvertical}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{edXproblem}{Numerical response}

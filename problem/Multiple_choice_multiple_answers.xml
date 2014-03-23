@@ -1,0 +1,43 @@
+<problem display_name="Multiple choice multiple answers">
+  <text>
+    <p>
+What are the best computer programming language? Choose <em>all</em> which apply: </p>
+    <script type="text/python" system_path="python_lib">
+
+aset = [ 'Cobol',
+         'Pascal',
+         'Python',
+         'C++',
+         'Clu',
+         'Forth',
+      ]
+
+(ans1,ans2,ans3,ans4,ans5,ans6) = aset
+
+</script>
+    <p>
+      <choiceresponse>
+        <checkboxgroup direction="vertical">
+          <choice correct="false" name="1">
+            <text> $ans1</text>
+          </choice>
+          <choice correct="false" name="2">
+            <text> $ans2</text>
+          </choice>
+          <choice correct="true" name="3">
+            <text> $ans3</text>
+          </choice>
+          <choice correct="true" name="4">
+            <text> $ans4</text>
+          </choice>
+          <choice correct="false" name="5">
+            <text> $ans5</text>
+          </choice>
+          <choice correct="false" name="6">
+            <text> $ans6</text>
+          </choice>
+        </checkboxgroup>
+      </choiceresponse>
+    </p>
+  </text>
+</problem>

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  22 MAR 2014 21:34
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  23 MAR 2014 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -33,7 +33,7 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/py
-thon2.7/site-packages/latex2dnd-0.0.9-py2.7.egg/latex2dnd/tex/latex2dnd.tex
+thon2.7/site-packages/latex2dnd-0.9.1-py2.7.egg/latex2dnd/tex/latex2dnd.tex
 (/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/zref-user.sty
 Package: zref-user 2010/05/01 v2.17 Module user for zref (HO)
 
@@ -512,23 +512,23 @@ Box blue: 4 by 6ex, text=4ex
 
 {/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LABEL1
-Box white: LABEL1 by \bwidth , text=\bheight 
+Box green: LABEL1 by \bwidth , text=\bheight 
 LABEL2
-Box white: LABEL2 by \bwidth , text=\bheight 
+Box green: LABEL2 by \bwidth , text=\bheight 
 LABEL3
-Box white: LABEL3 by \bwidth , text=\bheight 
+Box green: LABEL3 by \bwidth , text=\bheight 
 LABEL4
-Box white: LABEL4 by \bwidth , text=\bheight 
+Box green: LABEL4 by \bwidth , text=\bheight 
 LABEL5
-Box white: LABEL5 by \bwidth , text=\bheight 
+Box green: LABEL5 by \bwidth , text=\bheight 
 LABEL6
-Box white: LABEL6 by \bwidth , text=\bheight 
+Box green: LABEL6 by \bwidth , text=\bheight 
 LABEL7
-Box white: LABEL7 by \bwidth , text=\bheight 
+Box green: LABEL7 by \bwidth , text=\bheight 
 LABEL8
-Box white: LABEL8 by \bwidth , text=\bheight 
+Box green: LABEL8 by \bwidth , text=\bheight 
 LABEL9
-Box white: LABEL9 by \bwidth , text=\bheight 
+Box green: LABEL9 by \bwidth , text=\bheight 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 34.
 [2]
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 34.
@@ -538,18 +538,18 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 34.
 Here is how much of TeX's memory you used:
  8357 strings out of 493747
  149661 string characters out of 3143546
- 201323 words of memory out of 3000000
+ 201325 words of memory out of 3000000
  11454 multiletter control sequences out of 15000+200000
  3640 words of font info for 14 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 49i,9n,49p,488b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,9n,49p,488b,528s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
 usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
 ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on quadratic.pdf (2 pages, 51989 bytes).
+Output written on quadratic.pdf (2 pages, 51847 bytes).
 PDF statistics:
  38 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream
