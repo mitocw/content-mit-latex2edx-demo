@@ -204,9 +204,13 @@ Explicitly include multiplication using ${\tt *}$, e.g. ${\tt x*y}$ is
 $xy$.  Standard mathematical functions may be employed, e.g. ${\tt sin(x)}$,
 ${\tt sqrt(x)}$, etc.
 
+% note that the sampling range must be carefully chosen such that
+% the argument of the sqrt does not go negative, for the default random
+% numerical sampling checker to work.
+
 \edXinline{$\lambda =$ }
 \edXabox{expect="-b + sqrt(b^2-4*a*c)" type="formula"
-  samples="a,b,c@1,1,1:20,20,20#50" size="60" tolerance='0.01' inline='1'
+  samples="a,b,c@1,4,1:3,20,3#50" size="60" tolerance='0.01' inline='1'
   math="1" feqin="1" }%
 
 \end{edXproblem}
