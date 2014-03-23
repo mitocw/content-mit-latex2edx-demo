@@ -993,7 +993,7 @@ def ket_evaluator_test():
     </p>
     <p>
       <p style="display:inline">[mathjaxinline]M =[/mathjaxinline] </p>
-      <customresponse cfn="test_formula" inline="1" expect="X*Y" options="samples='X,Y,Z@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1]:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1]j#50'" cfn_extra_args="options">
+      <customresponse cfn="test_formula" inline="1" expect="X*Y" options="samples='X,Y,Z@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1]:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1]#50'" cfn_extra_args="options">
         <textline size="70" correct_answer="X*Y" inline="1" math="1" preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"/>
       </customresponse>
     </p>
