@@ -195,9 +195,9 @@ Enter two numbers which add up to 10:
 
 This problem demonstrates the use of a the ``formula response'' problem.
 
-Let $f(x) = a x^2 + bx + c$.  Assume the coefficients $a$, $b$, and
-$c$ are positive.  Give an equation for the positive root $\lambda$
-such that $f(\lambda)=0$:
+Let $f(x) = a x^2 + bx + c$.  Assume the coefficients $a$, $b$, $c$
+are such that $f$ has two distinct real roots. Give an equation for
+$\lambda$, the larger of the two roots, such that $f(\lambda)=0$.''
 
 Use {\tt ^} for exponentiation, e.g. {\tt x^2} denotes $x^2$.
 Explicitly include multiplication using ${\tt *}$, e.g. ${\tt x*y}$ is
@@ -209,8 +209,8 @@ ${\tt sqrt(x)}$, etc.
 % numerical sampling checker to work.
 
 \edXinline{$\lambda =$ }
-\edXabox{expect="-b + sqrt(b^2-4*a*c)" type="formula"
-  samples="a,b,c@1,4,1:3,20,3#50" size="60" tolerance='0.01' inline='1'
+\edXabox{expect="(-b + sqrt(b^2-4*a*c))/(2*a)" type="formula"
+  samples="a,b,c@1,16,1:3,20,3#50" size="60" tolerance='0.01' inline='1'
   math="1" feqin="1" }%
 
 \end{edXproblem}
