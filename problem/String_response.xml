@@ -22,6 +22,9 @@ Explanations can also be provided inside: </p>
       </solution>
     </p>
     <p>
-https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/srcSource TeX </p>
+      <span class="gitlink" style="float:right">
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./basic.tex#L47">Source TeX</a>
+      </span>
+    </p>
   </text>
 </problem>
