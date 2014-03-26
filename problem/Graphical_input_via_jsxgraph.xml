@@ -80,6 +80,9 @@ def test_findep(expect, ans):
       </customresponse>
     </p>
     <p>
-https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/srcSource TeX </p>
+      <span class="gitlink" style="float:right">
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L397">Source TeX</a>
+      </span>
+    </p>
   </text>
 </problem>

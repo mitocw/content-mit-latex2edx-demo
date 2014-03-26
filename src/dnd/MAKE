@@ -1,0 +1,1 @@
+latex2dnd -r 220 -d ../../static/images/quadratic quadratic.tex
