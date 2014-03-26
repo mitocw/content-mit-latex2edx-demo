@@ -79,5 +79,10 @@ def test_findep(expect, ans):
         <jsinput width="650" height="555" gradefn="getinput" get_statefn="getstate" set_statefn="setstate" html_file="/static/html/ps3plot_btran1.html"/>
       </customresponse>
     </p>
+    <p>
+      <span class="gitlink" style="float:right">
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L397">Source TeX</a>
+      </span>
+    </p>
   </text>
 </problem>

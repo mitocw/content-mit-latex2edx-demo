@@ -24,5 +24,10 @@ Enter two numbers which add up to 10: </p>
         <p style="display:inline">y =<textline correct_answer="9" inline="1"/></p>
       </customresponse>
     </p>
+    <p>
+      <span class="gitlink" style="float:right">
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./basic.tex#L191">Source TeX</a>
+      </span>
+    </p>
   </text>
 </problem>

@@ -1,8 +1,6 @@
 #!/bin/bash
 
-HN=`hostname`
-
-if [[ $HN == tea* ]]
+if [ -e DO_RELOAD ]
 then
     echo "reloading vagrant box"
     ssh vagrant@192.168.33.10 ./VB_RELOAD content-mit-latex2edx-demo

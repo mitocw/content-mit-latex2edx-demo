@@ -48,22 +48,22 @@ Complete this to give the correct equation for the roots of a quadratic polynomi
       <span>
         <customresponse>
           <drag_and_drop_input img="/static/images/quadratic/quadratic_dnd.png" target_outline="false" one_per_target="true" no_labels="true" label_bg_color="rgb(222, 139, 238)">
-            <draggable id="term1" icon="/static/images/quadratic/quadratic_dnd_label1.png" can_reuse="true"/>
-            <draggable id="term1p" icon="/static/images/quadratic/quadratic_dnd_label2.png" can_reuse="true"/>
-            <draggable id="term2" icon="/static/images/quadratic/quadratic_dnd_label3.png" can_reuse="true"/>
-            <draggable id="dubexp" icon="/static/images/quadratic/quadratic_dnd_label4.png" can_reuse="true"/>
-            <draggable id="dubsub" icon="/static/images/quadratic/quadratic_dnd_label5.png" can_reuse="true"/>
-            <draggable id="fac" icon="/static/images/quadratic/quadratic_dnd_label6.png" can_reuse="true"/>
-            <draggable id="facp" icon="/static/images/quadratic/quadratic_dnd_label7.png" can_reuse="true"/>
-            <draggable id="ta" icon="/static/images/quadratic/quadratic_dnd_label8.png" can_reuse="true"/>
-            <draggable id="tam" icon="/static/images/quadratic/quadratic_dnd_label9.png" can_reuse="true"/>
-            <target id="1" x="70" y="19" w="123" h="74"/>
+            <draggable id="term1" icon="/static/images/quadratic/quadratic_dnd_label1.png"/>
+            <draggable id="term1p" icon="/static/images/quadratic/quadratic_dnd_label2.png"/>
+            <draggable id="term2" icon="/static/images/quadratic/quadratic_dnd_label3.png"/>
+            <draggable id="dubexp" icon="/static/images/quadratic/quadratic_dnd_label4.png"/>
+            <draggable id="dubsub" icon="/static/images/quadratic/quadratic_dnd_label5.png"/>
+            <draggable id="fac" icon="/static/images/quadratic/quadratic_dnd_label6.png"/>
+            <draggable id="facp" icon="/static/images/quadratic/quadratic_dnd_label7.png"/>
+            <draggable id="ta" icon="/static/images/quadratic/quadratic_dnd_label8.png"/>
+            <draggable id="tam" icon="/static/images/quadratic/quadratic_dnd_label9.png"/>
+            <target id="1" x="71" y="19" w="79" h="75"/>
             <!-- answer=term1 -->
-            <target id="2" x="283" y="19" w="123" h="74"/>
+            <target id="2" x="240" y="19" w="80" h="75"/>
             <!-- answer=term2 -->
-            <target id="3" x="427" y="19" w="122" h="74"/>
+            <target id="3" x="340" y="19" w="80" h="75"/>
             <!-- answer=fac -->
-            <target id="4" x="249" y="129" w="122" h="74"/>
+            <target id="4" x="206" y="129" w="79" h="75"/>
             <!-- answer=ta -->
           </drag_and_drop_input>
           <answer>
@@ -78,6 +78,11 @@ else:
         <solution>
           <img src="/static/images/quadratic/quadratic_dnd_sol.png"/>
         </solution>
+      </span>
+    </p>
+    <p>
+      <span class="gitlink" style="float:right">
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L350">Source TeX</a>
       </span>
     </p>
   </text>
