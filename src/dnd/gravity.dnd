@@ -1,0 +1,13 @@
+LABEL: 1 = G /// $G$
+LABEL: 2 = m1 /// $m_1$
+LABEL: 3 = m2 /// $m_2$
+LABEL: 4 = d /// $d$
+LABEL: 5 = d2 /// $d^2$
+BOX: 1 = G
+BOX: 2 = m1
+BOX: 3 = m2
+BOX: 4 = d2
+FORMULA:  [1] * [2] * [3] / [4] 
+FORMULA_SAMPLES:  G,m_1,m_2,d@1,1,1,1:20,20,20,20\#40 
+FORMULA_EXPECT: G*m_1*m_2/d^2
+FORMULA_ERR: Try checking units

@@ -18,6 +18,7 @@
     </vertical>
     <vertical url_name="Drag_and_drop_input_verticalx">
       <problem url_name="Drag_and_drop_problem_created_via_latex2dnd"/>
+      <problem url_name="Drag_and_drop_problem_with_formula_grading"/>
     </vertical>
   </sequential>
   <sequential display_name="Graphical input using javascript" url_name="Graphical_input_using_javascript">

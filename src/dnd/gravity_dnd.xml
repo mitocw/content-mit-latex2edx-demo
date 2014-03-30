@@ -1,0 +1,105 @@
+<span>
+  <customresponse cfn="check_gravity">
+    <drag_and_drop_input img="/static/images/gravity/gravity_dnd.png" target_outline="false" one_per_target="true" no_labels="true" label_bg_color="rgb(222, 139, 238)">
+      <draggable id="G" icon="/static/images/gravity/gravity_dnd_label1.png"/>
+      <draggable id="m1" icon="/static/images/gravity/gravity_dnd_label2.png"/>
+      <draggable id="m2" icon="/static/images/gravity/gravity_dnd_label3.png"/>
+      <draggable id="d" icon="/static/images/gravity/gravity_dnd_label4.png"/>
+      <draggable id="d2" icon="/static/images/gravity/gravity_dnd_label5.png"/>
+      <target id="1" x="77" y="1" w="80" h="74"/>
+      <!-- answer=G -->
+      <target id="2" x="177" y="1" w="79" h="74"/>
+      <!-- answer=m1 -->
+      <target id="3" x="277" y="1" w="79" h="74"/>
+      <!-- answer=m2 -->
+      <target id="4" x="177" y="104" w="79" h="75"/>
+      <!-- answer=d2 -->
+    </drag_and_drop_input>
+  </customresponse>
+  <script type="text/python">
+import random
+from math import *
+from calc import evaluator
+import json
+
+def is_formula_equal(expected, given, samples, cs=True, tolerance=0.01):
+    variables = samples.split('@')[0].split(',')
+    numsamples = int(samples.split('@')[1].split('#')[1])
+    sranges = zip(*map(lambda x: map(float, x.split(",")),
+                       samples.split('@')[1].split('#')[0].split(':')))
+    ranges = dict(zip(variables, sranges))
+    for i in range(numsamples):
+        vvariables = {}
+        for var in ranges:
+            value = random.uniform(*ranges[var])
+            vvariables[str(var)] = value
+        try:
+            instructor_result = evaluator(vvariables, dict(), expected, case_sensitive=cs)
+            student_result = evaluator(vvariables, dict(), given, case_sensitive=cs)
+        except Exception as err:
+            raise Exception("is_formula_eq: vvariables=%s, err=%s" % (vvariables, str(err)))
+        if abs(instructor_result-student_result) &gt; tolerance:
+            return False
+    return True
+    
+def dnd_check_formula(expect, ans, draggable_map, target_formula, samples):
+
+    # construct symbolic expression from drag-and-drop result, given
+    # targets in numerator and denominator
+    # 
+    # draggable_map maps from draggable_id to math symbol
+    # target_formula is a format string which places target_id into a formula
+    # samples = sample string for numerical checking
+
+    anslist = json.loads(ans)
+
+    target_syms = {}
+    for dnddict in anslist:
+        # each dnddict is {draggable_id : target_id}
+        (did, tid) = dnddict.items()[0]
+        try:
+            # turn target id's which are numbers into _number (so that format strings work)
+            tidnum = int(tid)
+            tid = '_' + tid
+        except:
+            pass
+        target_syms[tid] = draggable_map[did]
+
+    try:
+        expr = target_formula.format(**target_syms)
+    except Exception as err:
+        msg = "&lt;br/&gt;Sorry, your input is incomplete "
+        return {'ok': False, 'msg': msg}
+
+    msg = 'You have input the expression: %s' % expr
+    ok = False
+    try:
+        ok = is_formula_equal(expect, expr, samples)
+    except Exception as err:
+        msg += "&lt;br/&gt;error %s" % str(err).replace('&gt;','&amp;gt;')
+
+    if not ok:
+        msg += '&lt;br/&gt;&lt;font color="red"&gt;Try checking units&lt;/font&gt;'
+
+    # ret = {'ok': False, 'msg': 'ans=%s' % ans}
+    ret = {'ok': ok, 'msg': msg}
+    return ret
+
+def check_gravity(expect, ans, dcf=dnd_check_formula):
+    dmap = {'d2': 'd^2', 'm1': 'm_1', 'd': 'd', 'G': 'G', 'm2': 'm_2'}
+    formula = '{_1} * {_2} * {_3} / {_4}'
+    samples = 'G,m_1,m_2,d@1,1,1,1:20,20,20,20#40'
+    expect = 'G*m_1*m_2/d^2'
+
+    # call dnd_check_formula to do mapping from dnd to formual and to test expression
+    return dcf(expect, ans, dmap, formula, samples)
+
+# keep note of check function for other hinting code
+dnd_check_function = check_gravity
+
+
+</script>
+  <solution>
+    <img src="/static/images/gravity/gravity_dnd_sol.png"/>
+  </solution>
+</span>
