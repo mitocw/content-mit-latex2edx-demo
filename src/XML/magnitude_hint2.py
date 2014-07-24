@@ -12,7 +12,7 @@ def is_close(ans, expect):
         magdif = abs( log10(abs(float(ans)))-log10(abs(expect)) )
     except Exception as err:
         return ""
-    if magdif &gt; 2:
+    if magdif > 2:
         return "You are more than two orders of magnitude off&lt;br/&gt;"
     return ""
 
@@ -31,7 +31,7 @@ def is_sign_correct(ans, expect):
         signdif = math.copysign(1, float(ans)) * math.copysign(1, float(expect))
     except Exception as err:
         return ""
-    if signdif &lt; 0:
+    if signdif < 0:
         return "Is the sign of your answer correct?&lt;br/&gt;"
     return ""
 
@@ -80,7 +80,7 @@ def hint_mag(answer_ids, student_answers, new_cmap, old_cmap, anum=0, sign=False
     except Exception as err:
         raise Exception('expected answer not evaluated, expected=%s, anum=%s, err=%s' % (expected, anum, str(err)))
 
-    # if expect is a dict, then generate hints by range in addition to 
+    # if expect is a dict, then generate hints by range in addition to
     extra_hints = []
     hint = ''
     if type(expect)==dict:
