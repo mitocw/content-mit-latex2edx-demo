@@ -1,30 +1,312 @@
-%
-% Notes: edXpsl does not like certain pacakages.  This includes:
-%        enumerate, paralist
-%
+% Filename: edXpsl.sty
 
-\usepackage{verbatim}
+% Description:
+% Style file for compiling MITx course to PDF using the 'article' document class.
 
-\newenvironment{edXcourse}[2][\unskip]{{\noindent\Large\bf edX Course: #1}~\\}{}
-\newenvironment{edXchapter}[1]{\section{#1}}{}
-\newenvironment{edXsection}[1]{\subsection{#1}}{}
-\newenvironment{edXsequential}{}{}
-\newenvironment{edXvertical}[1]{}{}
-\newenvironment{edXshowhide}[1]{\begin{quote}{{\bf Showhide: #1}}}{\end{quote}}
-\newenvironment{edXscript}{\verbatim}{\endverbatim}
-\newenvironment{edXanswer}{\verbatim}{\endverbatim}
-\newenvironment{edXjavascript}{\verbatim}{\endverbatim}
-\newenvironment{edXproblem}[2]{\subsubsection{{\bf #1}}}{}
-\newenvironment{edXtext}[1]{\subsubsection{{\bf #1}}}{}
-\newenvironment{edXmath}{$$}{$$}
-\newcommand\edXsolution[1]{#1}
-\newcommand\edXinline[1]{#1}
-\newcommand\edXinclude[1]{}
-\newcommand\edXincludepy[1]{}
-\newcommand\edXxml[1]{}
-\newcommand\edXbr[1]{\par}
-\newcommand\edXvideo[1]{}
-%\newcommand\edXabox[1]{\fbox{#1}}
-\newcommand\edXabox[1]{ANSWER BOX HERE}
+% Note:
+% Directives using the \def command included in the main course TEX file are interpreted by both the LaTeX => PDF converters and latex2edx executable.
 
-\usepackage{graphicx}
+\RequirePackage{xparse}
+\ExplSyntaxOn
+
+\RequirePackage{verbatim}
+\RequirePackage{graphicx}
+\RequirePackage{color}
+\RequirePackage{url}
+  \cs_set_eq:NN \vurl \url
+\RequirePackage{hyperref}
+\RequirePackage{amsmath}
+\RequirePackage{indentfirst}
+\RequirePackage{makeidx}
+\RequirePackage{ifthen}
+\RequirePackage{environ}
+\RequirePackage{xstring}
+\RequirePackage{xcolor}
+\RequirePackage[
+  left   = 1   in,
+  right  = 1   in,
+  top    = 0.8 in,
+  bottom = 1.4 in,
+]{geometry}
+\RequirePackage{fancyhdr}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{titling}
+
+%Set up table of contents entries
+\ProvideDocumentCommand \phantomsection { } { }
+\NewDocumentCommand \addchaptoc { m } { \phantomsection \addcontentsline {toc} {section} {#1} }
+\NewDocumentCommand \addsectoc { m } { \phantomsection \addcontentsline {toc} {subsection} {#1} }
+\NewDocumentCommand \addsubtoc { m } { \phantomsection \addcontentsline {toc} {subsubsection} {#1} }
+\NewDocumentCommand \addsubsubtoc { m } { \phantomsection \addcontentsline {toc} {paragraph} {#1} }
+
+\setcounter { tocdepth } {4}
+\date { \today }
+\author { }
+
+% edX commands understood by latex2edx.py
+\newcounter { edXchapter }
+\newcounter { edXsequential } [ edXchapter ]
+\newcounter { edXvertical } [ edXsequential ]
+
+\NewDocumentEnvironment { edXcourse } { m m o }
+ {
+  \NewDocumentCommand \CourseDisplay { } {#2}
+  \NewDocumentCommand \CourseNumber { } {#1}
+  \IfNoValueTF {#3}
+   {
+    \NewDocumentCommand \CourseOptions { } {~}
+   } {
+    \NewDocumentCommand \CourseOptions { } { \texttt{#3} }
+   }
+  \group_begin:
+  \title
+   {
+    {\Huge \bf #2}\\
+    \vspace {1em}
+    {\Huge edX ~ Course: ~ #1}\\
+    \vspace {1em}
+    \IfNoValueTF {#3} { } {\texttt {#3} }
+   }
+  \group_end:
+  \maketitle
+  \tableofcontents
+  \newpage
+ } { }
+
+\NewDocumentEnvironment { edXchapter } { m o }
+ {
+  \refstepcounter {edXchapter}
+  \section* {#1}
+  \addchaptoc {\protect \makebox [1ex] [l] {\arabic {edXchapter} } \quad #1}
+ } { }
+
+\NewDocumentEnvironment { edXchapter* } { m o }
+ {
+  \section* {#1}
+  \addchaptoc {#1}
+ } { }
+
+\NewDocumentEnvironment { edXsection } { m o }
+ {
+  \refstepcounter {edXsequential}
+  \subsection* {#1}
+  \addsectoc {\protect \makebox [1ex] [l] {\arabic {edXsequential} } \quad #1}
+ } {
+  \clearpage
+ }
+
+\NewDocumentEnvironment { edXsequential } { m o }
+ {
+  \refstepcounter {edXsequential}
+  \subsection* {#1}
+  \addsectoc {\protect \makebox [1ex] [l] {\arabic {edXsequential} } \quad #1}
+ } {
+  \clearpage
+ }
+
+\NewDocumentEnvironment { edXsequential* } { m o }
+ {
+  \subsection* {#1}
+  \addsectoc {#1}
+ } {
+  \clearpage
+ }
+
+\NewDocumentEnvironment { edXvertical } { g o }
+ {
+  \refstepcounter {edXvertical}
+  \subsection* {#1}
+  \addsubtoc {\protect \makebox [1ex] [l] {\arabic {edXvertical} } \quad #1}
+  \vspace {-2mm}
+ } { }
+
+\NewDocumentEnvironment { edXvertical* } { g o }
+ {
+  \subsection* {#1}
+  \addsubtoc {#1}
+  \vspace {-2mm}
+ } { }
+
+\NewDocumentEnvironment { edXshowhide } { m m o }
+ {
+  \begin{quote}
+   {
+    \textbf { Showhide: ~ #2 ~ (ID: ~ #1): }
+   }
+ } {
+  \end{quote}
+ }
+
+\NewDocumentEnvironment { edXproblem } { m g }
+ {
+  \subsubsection* { \textbf {#1} }
+  \addsubsubtoc {#1}
+ } { }
+
+\NewDocumentEnvironment { edXtext } { m o }
+ {
+  \subsubsection* { \textbf {#1} }
+  \addsubsubtoc {#1}
+ } { }
+
+\NewDocumentEnvironment { edXscript } { }
+ {
+  \noindent
+  \underline { \texttt { Python ~ code: } }
+  \verbatim
+ } {
+  \endverbatim
+ }
+
+\NewDocumentEnvironment { edXanswer } { }
+ {
+  \verbatim
+ } {
+  \endverbatim
+ }
+
+\NewDocumentEnvironment { edXjavascript } { }
+ {
+  \verbatim
+ } {
+  \endverbatim
+ }
+
+\NewDocumentEnvironment { edXmath } { }
+ {
+  \begin{displaymath}
+ } {
+  \end{displaymath}
+ }
+
+\NewDocumentCommand \edXgitlink   { m m } { \href {#1} {#2} }
+\NewDocumentCommand \edXinline    { m } {#1}
+\NewDocumentCommand \edXinclude   { m } { \texttt {#1} }
+\NewDocumentCommand \edXincludepy { m } { }
+\NewDocumentCommand \edXdndtex    { m } { }
+\NewDocumentCommand \edXxml       { m } { \texttt {#1} }
+\NewDocumentCommand \edXbr        { } { \par }
+\NewDocumentCommand \edXvideo     { m m o }
+ {
+  \href { http://www.youtube.com/watch?v=#2 } { \color{blue} \underline {#1} }
+ }
+\NewDocumentCommand \edXdiscussion { m m } { \textbf { Discussion: } ~ #1 } { }
+\NewEnviron{ edXsolution }
+ {
+  \ifthenelse
+   {
+    \boolean { showSolution }
+   } {
+    \color {blue}
+    \noindent
+    \underline { edXsolution }
+    \BODY
+   } { }
+ } { }
+
+\NewDocumentCommand \edXabox      { m }
+ {
+  \ifthenelse
+   {
+    \boolean{showAboxCode}
+   } {
+    \fbox
+     {
+      \parbox {0.9 \hsize}
+      \group_begin:
+       \texttt {#1}
+      \group_end:
+     }
+   } {
+    \group_begin:
+     \color {blue}
+     \textbf { Assessment ~ content ~ removed }
+    \group_end:
+   }
+ }
+
+% ToCRef addition (for links to a static table of a contents: tocindex.html)
+\setlength \fboxsep { 0 pt }
+\NewDocumentCommand \tocref { m }
+ {
+%  \ 
+  \group_begin:
+   \color {cyan}
+   \colorbox {gray!20} { \framebox (28,14) { \ref {#1} } }
+  \group_end:
+ }
+\NewDocumentCommand \toclabel { m } { \label {#1} }
+% =================================================
+
+\RenewDocumentCommand \texttt { m }
+ {
+  \urlstyle { tt }
+  \vurl {#1}
+ }
+
+% Initialize toggling parameters for PDF output
+\newboolean { inVertical }
+\setboolean { inVertical } {false}
+\newboolean { showAboxCode }
+\setboolean { showAboxCode } {false}
+\newboolean { showSolution }
+\setboolean { showSolution } {false}
+
+\cs_new:Npn \edx_header_line_format:nn #1#2
+ {
+  \group_begin:
+  \fontsize{10}{12}
+  \selectfont
+  \textsc {#1}
+  \hfill
+  \textbf {#2}
+  \group_end:
+ }
+
+% Create header on every page but title
+\fancypagestyle{body}
+ {
+  \setlength \voffset    { 0.6 in }
+  \setlength \textheight { 8   in }
+  \setlength \parskip    { 0.2 pc }
+  \setlength \headheight { 0.5 in }
+
+  \fancyhead {} 
+
+  \chead
+   {
+    \hrule
+    \vspace{0.3pc}
+
+    \edx_header_line_format:nn
+     {
+      \CourseDisplay
+     } {
+      \LaTeX{} 2 edX ~ Course
+     }
+
+    \\[-3ex]
+    \vspace{12pt}
+
+    \edx_header_line_format:nn
+     {
+      \CourseOptions
+     } {
+      \CourseNumber
+     }
+
+    \\[-3ex]
+    \vspace{12pt}
+
+    \edx_header_line_format:nn
+     {
+      \thedate
+     } {
+      \theauthor
+     }
+   }
+ }
+
+\pagestyle { body }
+
+\ExplSyntaxOff

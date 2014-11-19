@@ -21,11 +21,11 @@ Let $X$, $Y$, and $Z$ be the usual Pauli matrices,
 \eea
 Give an expression $M$ equal to $iZ$.
 
-Valid answers include {\tt\LARGE X*Y} and {\tt\LARGE i*Z}.  But {\tt\LARGE Y*X} is properly graded as being invalid.
+Valid answers include {\LARGE \texttt{X*Y}} and {\LARGE \texttt{i*Z}}.  But {\LARGE \texttt{Y*X}} is properly graded as being invalid.
 
-Note that {\LARGE\tt  X * exp(-i*Y) * Y * exp(i*Y)} also works (matrix
+Note that {\LARGE \texttt{X * exp(-i*Y) * Y * exp(i*Y)}} also works (matrix
 exponentials do the correct thing -- although, unfortunately, the edX
-edge system doesn't provide {\LARGE\tt scipy.linalg}, and so it will
+edge system doesn't provide {\LARGE \texttt{scipy.linalg}}, and so it will
 not work there).
 
 % The following code imports matrix_evaluator from the course
@@ -69,7 +69,7 @@ not work there).
 \begin{edXshowhide}{studioproblem}{Implementation notes and limits of edX studio}
 The checking of this formula is done using a somewhat extensive python
 script.  The edX platform allows such python scripts to be stored in
-the course /python_lib or /code directory.  This means that each
+the course \texttt{/python_lib} or \texttt{/code} directory.  This means that each
 problem can simply have a short script with a python ``import'' line
 to retrieve the library functions.
 
@@ -77,7 +77,7 @@ This works very well when you are authoring the course directly in
 XML, and not via uploading to edX Studio.
 
 Unfortunately, the edX Studio system is broken, in that it does
-not allow use of /python_lib or /code directories of python
+not allow use of \texttt{/python_lib} or \texttt{/code} directories of python
 code libraries.  Thus, for this demo to work on the edx.org
 Studio system, we are forced to paste all the python code
 in each problem, instead of importing it using normal semantics.
@@ -113,12 +113,12 @@ This problem demonstrates how to use customresponse python code to
 check for equality of formulas with such ket notation, as well as a
 javascript pre-processor to properly format ket expressions.
 
-Type in {\tt (2*|0>+3*|b>)/sqrt(13)} as the answer below.
+Type in \texttt{(2*|0>+3*|b>)/sqrt(13)} as the answer below.
 
-Multiple correct answer are supported.  {\tt |b>} is also correct, in
+Multiple correct answer are supported.  \texttt{|b>} is also correct, in
 this example.
 
-\edXxml{<font color="red"><b> Remeber to explicitly denote multiplication using [mathjaxinline]\tt *[/mathjaxinline]</b></font>}
+\edXxml{<font color="red"><b> Remember to explicitly denote multiplication using [mathjaxinline]\tt *[/mathjaxinline]</b></font>}
 
 \edXbr
 
