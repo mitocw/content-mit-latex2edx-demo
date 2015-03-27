@@ -1,39 +1,28 @@
-<problem display_name="Multiple choice single answer">
+<problem display_name="Multiple choice single answer" linenum="58" tex_filename="./basic.tex">
   <text>
     <p>
 What color is the sky on a clear sunny day? </p>
-    <script type="text/python" system_path="python_lib">
-
-aset = [ 'Red',
-         'Green',
-         'Blue',
-         'Black',
-      ]
-
-(ans1,ans2,ans3,ans4) = aset
-
-</script>
     <p>
       <multiplechoiceresponse>
         <choicegroup direction="vertical">
           <choice correct="false" name="1">
-            <text> $ans1</text>
+            <text> Red</text>
           </choice>
           <choice correct="false" name="2">
-            <text> $ans2</text>
+            <text> Green</text>
           </choice>
           <choice correct="true" name="3">
-            <text> $ans3</text>
+            <text> Blue</text>
           </choice>
           <choice correct="false" name="4">
-            <text> $ans4</text>
+            <text> Black</text>
           </choice>
         </choicegroup>
       </multiplechoiceresponse>
     </p>
     <p>
       <span class="gitlink" style="float:right">
-        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./basic.tex#L78">Source TeX</a>
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./basic.tex#L66">Source TeX</a>
       </span>
     </p>
   </text>

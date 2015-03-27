@@ -1,14 +1,14 @@
-<problem display_name="Matrix expression equality">
+<problem display_name="Matrix expression equality" linenum="11" tex_filename="./advanced.tex">
   <text>
     <p>
 This problem demonstrates testing of matrix expression equality. It properly handles the non-commutativity of matrices. </p>
     <p>
 Let [mathjaxinline]X[/mathjaxinline], [mathjaxinline]Y[/mathjaxinline], and [mathjaxinline]Z[/mathjaxinline] be the usual Pauli matrices, </p>
-    <table id="a0000000002" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
-      <tr id="a0000000003">
+    <table id="a0000000004" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
+      <tr id="a0000000005">
         <td style="width:40%; border:none">&#xA0;</td>
         <td style="vertical-align:middle;                                    text-align:right; border:none">
-	    [mathjaxinline]\displaystyle X[/mathjaxinline]
+	    [mathjaxinline]\displaystyle  X[/mathjaxinline]
         </td>
         <td style="vertical-align:middle;                                    text-align:center; border:none">
 	    [mathjaxinline]\displaystyle =[/mathjaxinline]
@@ -17,11 +17,9 @@ Let [mathjaxinline]X[/mathjaxinline], [mathjaxinline]Y[/mathjaxinline], and [mat
 	    [mathjaxinline]\displaystyle  \left( \begin{array}{cc}{0}&amp; {1}\\ {1}&amp; {0}\end{array}\right)[/mathjaxinline]
         </td>
         <td style="width:40%; border:none">&#xA0;</td>
-        <td style="width:20%; border:none" class="eqnnum">
-          <span>(<span>1</span>)</span>
-        </td>
+        <td style="width:20%; border:none" class="eqnnum"/>
       </tr>
-      <tr id="a0000000004">
+      <tr id="a0000000006">
         <td style="width:40%; border:none">&#xA0;</td>
         <td style="vertical-align:middle;                                    text-align:right; border:none">
 	    [mathjaxinline]\displaystyle Y[/mathjaxinline]
@@ -33,11 +31,9 @@ Let [mathjaxinline]X[/mathjaxinline], [mathjaxinline]Y[/mathjaxinline], and [mat
 	    [mathjaxinline]\displaystyle  \left( \begin{array}{cc}{0}&amp; {-i}\\ {i}&amp; {0}\end{array}\right)[/mathjaxinline]
         </td>
         <td style="width:40%; border:none">&#xA0;</td>
-        <td style="width:20%; border:none" class="eqnnum">
-          <span>(<span>2</span>)</span>
-        </td>
+        <td style="width:20%; border:none" class="eqnnum"/>
       </tr>
-      <tr id="a0000000005">
+      <tr id="a0000000007">
         <td style="width:40%; border:none">&#xA0;</td>
         <td style="vertical-align:middle;                                    text-align:right; border:none">
 	    [mathjaxinline]\displaystyle Z[/mathjaxinline]
@@ -49,19 +45,16 @@ Let [mathjaxinline]X[/mathjaxinline], [mathjaxinline]Y[/mathjaxinline], and [mat
 	    [mathjaxinline]\displaystyle  \left( \begin{array}{cc}{1}&amp; {0}\\ {0}&amp; {-1}\end{array}\right) \, .[/mathjaxinline]
         </td>
         <td style="width:40%; border:none">&#xA0;</td>
-        <td style="width:20%; border:none" class="eqnnum">
-          <span>(<span>3</span>)</span>
-        </td>
+        <td style="width:20%; border:none" class="eqnnum"/>
       </tr>
     </table>
     <p>
-Give an expression [mathjaxinline]M[/mathjaxinline] equal to [mathjaxinline]iZ[/mathjaxinline]. </p>
+ Give an expression [mathjaxinline]M[/mathjaxinline] equal to [mathjaxinline]iZ[/mathjaxinline]. </p>
     <p>
-Valid answers include <tt class="tt"><big class="xxlarge">X*Y</big></tt> and <tt class="tt"><big class="xxlarge">i*Z</big></tt>. But <tt class="tt"><big class="xxlarge">Y*X</big></tt> is properly graded as being invalid. </p>
+Valid answers include <big class="large"><tt class="ttfamily">X*Y</tt></big> and <big class="large"><tt class="ttfamily">i*Z</tt></big>. But <big class="large"><tt class="ttfamily">Y*X</tt></big> is properly graded as being invalid. </p>
     <p>
-Note that <big class="xxlarge"><tt class="tt">X * exp(-i*Y) * Y * exp(i*Y)</tt></big> also works (matrix exponentials do the correct thing - although, unfortunately, the edX edge system doesn't provide <big class="xxlarge"><tt class="tt">scipy.linalg</tt></big>, and so it will not work there). </p>
-    <p>
-      <script>
+Note that <big class="large"><tt class="ttfamily">X * exp(-i*Y) * Y * exp(i*Y)</tt></big> also works (matrix exponentials do the correct thing &#x2014; although, unfortunately, the edX edge system doesn't provide <big class="large"><tt class="ttfamily">scipy.linalg</tt></big>, and so it will not work there). </p>
+    <script>
 #
 # all evaluators and calc2 in one file - must use this on
 # edX studio because it doesn't support use of /python_lib
@@ -990,7 +983,6 @@ def ket_evaluator_test():
 
 
 </script>
-    </p>
     <p>
       <p style="display:inline">[mathjaxinline]M =[/mathjaxinline] </p>
       <customresponse cfn="test_formula" inline="1" expect="X*Y" options="samples='X,Y,Z@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1]:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1]#50'" cfn_extra_args="options">
@@ -1006,11 +998,11 @@ def ket_evaluator_test():
           <tr id="studioproblem" style="display:none">
             <td>
               <p>
-The checking of this formula is done using a somewhat extensive python script. The edX platform allows such python scripts to be stored in the course /python_lib or /code directory. This means that each problem can simply have a short script with a python &#x201C;import" line to retrieve the library functions. </p>
+The checking of this formula is done using a somewhat extensive python script. The edX platform allows such python scripts to be stored in the course <tt class="ttfamily">/python_lib</tt> or <tt class="ttfamily">/code</tt> directory. This means that each problem can simply have a short script with a python &#x201C;import" line to retrieve the library functions. </p>
               <p>
 This works very well when you are authoring the course directly in XML, and not via uploading to edX Studio. </p>
               <p>
-Unfortunately, the edX Studio system is broken, in that it does not allow use of /python_lib or /code directories of python code libraries. Thus, for this demo to work on the edx.org Studio system, we are forced to paste all the python code in each problem, instead of importing it using normal semantics. </p>
+Unfortunately, the edX Studio system is broken, in that it does not allow use of <tt class="ttfamily">/python_lib</tt> or <tt class="ttfamily">/code</tt> directories of python code libraries. Thus, for this demo to work on the edx.org Studio system, we are forced to paste all the python code in each problem, instead of importing it using normal semantics. </p>
               <p>
 Note that edX Studio also does not allow a hierarchy of directories in the /static directory: all files uploaded to Studio are stored flat in that directory. This means that HTML or javascript files which attempt to load files from subdirectories will break, when using Studio. </p>
               <p>
@@ -1031,7 +1023,7 @@ Either [mathjaxinline]XY[/mathjaxinline] or [mathjaxinline]-YX[/mathjaxinline] b
     </p>
     <p>
       <span class="gitlink" style="float:right">
-        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L100">Source TeX</a>
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L101">Source TeX</a>
       </span>
     </p>
   </text>

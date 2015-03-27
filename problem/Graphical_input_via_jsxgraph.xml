@@ -1,9 +1,11 @@
-<problem display_name="Graphical input via jsxgraph" attempts="1000">
+<problem display_name="Graphical input via jsxgraph" linenum="420" tex_filename="./advanced.tex" attempts="1000">
   <text>
     <p>
-The <a href="http://edx.readthedocs.org/projects/devdata/en/latest/course_data_formats/jsinput.html">jsinput</a> framework provides a very convenient way to employ virtually arbitrary javascript code as a user interface for input into edX auto-graded problems. </p>
+The <a href="http://edx.readthedocs.org/projects/devdata/en/latest/course_data_formats/jsinput.html" target="_blank">jsinput</a>
+ framework provides a very convenient way to employ virtually arbitrary javascript code as a user interface for input into edX auto-graded problems. </p>
     <p>
-This is an example which uses sliders and graphs from <a href="http://jsxgraph.uni-bayreuth.de/">jsxgraph</a>, a nice javascript math function plotting package, as input to a physics problem. </p>
+This is an example which uses sliders and graphs from <a href="http://jsxgraph.uni-bayreuth.de/" target="_blank">jsxgraph</a>
+, a nice javascript math function plotting package, as input to a physics problem. </p>
     <p>
 Identify one such field-independent transition in the figure below, by doing the following: </p>
     <ul class="itemize">
@@ -20,8 +22,7 @@ Choose two different states (A...H) for the transition </p>
 Click &#x201C;Check" to check your answer </p>
       </li>
     </ul>
-    <p>
-      <script>
+    <script>
 import json
 import math
 
@@ -72,8 +73,9 @@ def test_findep(expect, ans):
     return {'ok': False, 'msg': msg}
 
 </script>
-    </p>
-    <script type="text/javascript">setTimeout(function(){ JSInput.jsinputConstructor($ ('section.jsinput'))}, 1400);</script>
+    <script type="text/javascript">
+setTimeout(function(){ JSInput.jsinputConstructor($('section.jsinput'))}, 1400);
+</script>
     <p>
       <customresponse cfn="test_findep" expect="">
         <jsinput width="650" height="555" gradefn="getinput" get_statefn="getstate" set_statefn="setstate" html_file="/static/html/ps3plot_btran1.html"/>
@@ -81,7 +83,7 @@ def test_findep(expect, ans):
     </p>
     <p>
       <span class="gitlink" style="float:right">
-        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L449">Source TeX</a>
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L454">Source TeX</a>
       </span>
     </p>
   </text>

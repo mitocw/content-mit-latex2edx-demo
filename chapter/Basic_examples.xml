@@ -1,29 +1,29 @@
-<chapter display_name="Basic examples">
-  <sequential display_name="Basic example problems" url_name="Basic_example_problems">
-    <vertical url_name="Basic_example_problems_vertical">
+<chapter display_name="Basic examples" linenum="3" tex_filename="./basic.tex" refnum="2">
+  <sequential display_name="Basic example problems" refnum="1" url_name="Basic_example_problems">
+    <vertical refnum="1" url_name="Basic_example_problems_vertical">
       <problem url_name="Option_response"/>
       <problem url_name="String_response"/>
     </vertical>
-    <vertical url_name="Basic_example_problems_verticalx">
+    <vertical refnum="2" url_name="Basic_example_problems_verticalx">
       <problem url_name="Multiple_choice_single_answer"/>
       <problem url_name="Multiple_choice_multiple_answers"/>
     </vertical>
-    <vertical url_name="Basic_example_problems_verticalxx">
+    <vertical refnum="3" url_name="Basic_example_problems_verticalxx">
       <problem url_name="Numerical_response"/>
       <problem url_name="Numerical_response_with_inline_labels"/>
     </vertical>
-    <vertical url_name="Basic_example_problems_verticalxxx">
+    <vertical refnum="4" url_name="Basic_example_problems_verticalxxx">
       <problem url_name="Custom_response"/>
     </vertical>
-    <vertical url_name="Basic_example_problems_verticalxxxx">
+    <vertical refnum="5" url_name="Basic_example_problems_verticalxxxx">
       <problem url_name="Formula_response"/>
     </vertical>
   </sequential>
-  <sequential display_name="Video and text" url_name="Video_and_text">
-    <vertical url_name="Video_and_text_vertical">
+  <sequential display_name="Video and text" refnum="2" url_name="Video_and_text">
+    <vertical refnum="1" url_name="Video_and_text_vertical">
       <html url_name="Sample_show-hide_text_section"/>
     </vertical>
-    <vertical url_name="Video_and_text_verticalx">
+    <vertical refnum="2" url_name="Video_and_text_verticalx">
       <video url_name="week0_intro"/>
     </vertical>
   </sequential>

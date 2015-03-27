@@ -4,15 +4,17 @@
 % Style file for compiling MITx course to PDF using the 'article' document class.
 
 % Note:
-% Directives using the \def command included in the main course TEX file are interpreted by both the LaTeX => PDF converters and latex2edx executable.
+% Directives using the \def command included in the main course TEX file are
+% interpreted by both the LaTeX => PDF converters and latex2edx executable.
 
 \RequirePackage{xparse}
+\RequirePackage{l3regex}
 \ExplSyntaxOn
 
 \RequirePackage{verbatim}
 \RequirePackage{graphicx}
 \RequirePackage{color}
-\RequirePackage{url}
+\RequirePackage[obeyspaces]{url}
   \cs_set_eq:NN \vurl \url
 \RequirePackage{hyperref}
 \RequirePackage{amsmath}
@@ -32,6 +34,8 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{titling}
 
+\hypersetup{colorlinks=true, urlcolor=blue}
+
 %Set up table of contents entries
 \ProvideDocumentCommand \phantomsection { } { }
 \NewDocumentCommand \addchaptoc { m } { \phantomsection \addcontentsline {toc} {section} {#1} }
@@ -39,9 +43,32 @@
 \NewDocumentCommand \addsubtoc { m } { \phantomsection \addcontentsline {toc} {subsubsection} {#1} }
 \NewDocumentCommand \addsubsubtoc { m } { \phantomsection \addcontentsline {toc} {paragraph} {#1} }
 
+% Set default document fields
 \setcounter { tocdepth } {4}
 \date { \today }
 \author { }
+
+\NewDocumentCommand \CourseDisplay { } {~}
+\NewDocumentCommand \CourseNumber  { } {~}
+\NewDocumentCommand \CourseOptions { } {~}
+
+% Helper function to cleanly display underscores and carets
+\seq_new:N \l_cleanname_seq
+\NewDocumentCommand { \cleanname } { m }
+ {
+  \tl_set:Nn \l_cleanname_seq {#1}
+  % Replace underscores with textunderscore
+  \regex_replace_all:nnN
+   { _ }
+   { \c{textunderscore} }
+   \l_cleanname_seq
+  % Replace carets with textasciicircum
+  \regex_replace_all:nnN
+   { \^ }
+   { \c{textasciicircum} }
+   \l_cleanname_seq
+  \tl_use:N \l_cleanname_seq
+ }
 
 % edX commands understood by latex2edx.py
 \newcounter { edXchapter }
@@ -50,47 +77,47 @@
 
 \NewDocumentEnvironment { edXcourse } { m m o }
  {
-  \NewDocumentCommand \CourseDisplay { } {#2}
-  \NewDocumentCommand \CourseNumber { } {#1}
+  \RenewDocumentCommand \CourseDisplay { } {#2}
+  \RenewDocumentCommand \CourseNumber { } { \cleanname{#1} }
   \IfNoValueTF {#3}
-   {
-    \NewDocumentCommand \CourseOptions { } {~}
-   } {
-    \NewDocumentCommand \CourseOptions { } { \texttt{#3} }
+   { } {
+    \RenewDocumentCommand \CourseOptions { } { \cleanname{#3} }
    }
   \group_begin:
   \title
    {
     {\Huge \bf #2}\\
     \vspace {1em}
-    {\Huge edX ~ Course: ~ #1}\\
+    {\Huge edX ~ Course: ~ \CourseNumber}\\
     \vspace {1em}
-    \IfNoValueTF {#3} { } {\texttt {#3} }
+    \IfNoValueTF {#3} { } { \CourseOptions }
    }
   \group_end:
   \maketitle
   \tableofcontents
   \newpage
- } { }
+ } {
+  \clearpage
+ }
 
 \NewDocumentEnvironment { edXchapter } { m o }
  {
   \refstepcounter {edXchapter}
-  \section* {#1}
-  \addchaptoc {\protect \makebox [1ex] [l] {\arabic {edXchapter} } \quad #1}
+  \section* { \cleanname{#1} }
+  \addchaptoc {\protect \makebox [1ex] [l] {\arabic {edXchapter} } \quad \cleanname{#1} }
  } { }
 
 \NewDocumentEnvironment { edXchapter* } { m o }
  {
-  \section* {#1}
-  \addchaptoc {#1}
+  \section* { \cleanname{#1} }
+  \addchaptoc { \cleanname{#1} }
  } { }
 
 \NewDocumentEnvironment { edXsection } { m o }
  {
   \refstepcounter {edXsequential}
-  \subsection* {#1}
-  \addsectoc {\protect \makebox [1ex] [l] {\arabic {edXsequential} } \quad #1}
+  \subsection* { \cleanname{#1} }
+  \addsectoc {\protect \makebox [1ex] [l] {\arabic {edXsequential} } \quad  \cleanname{#1} }
  } {
   \clearpage
  }
@@ -98,16 +125,16 @@
 \NewDocumentEnvironment { edXsequential } { m o }
  {
   \refstepcounter {edXsequential}
-  \subsection* {#1}
-  \addsectoc {\protect \makebox [1ex] [l] {\arabic {edXsequential} } \quad #1}
+  \subsection* { \cleanname{#1} }
+  \addsectoc {\protect \makebox [1ex] [l] {\arabic {edXsequential} } \quad  \cleanname{#1} }
  } {
   \clearpage
  }
 
 \NewDocumentEnvironment { edXsequential* } { m o }
  {
-  \subsection* {#1}
-  \addsectoc {#1}
+  \subsection* { \cleanname{#1} }
+  \addsectoc { \cleanname{#1} }
  } {
   \clearpage
  }
@@ -115,15 +142,15 @@
 \NewDocumentEnvironment { edXvertical } { g o }
  {
   \refstepcounter {edXvertical}
-  \subsection* {#1}
-  \addsubtoc {\protect \makebox [1ex] [l] {\arabic {edXvertical} } \quad #1}
+  \subsection* { \cleanname{#1} }
+  \addsubtoc {\protect \makebox [1ex] [l] {\arabic {edXvertical} } \quad  \cleanname{#1} }
   \vspace {-2mm}
  } { }
 
 \NewDocumentEnvironment { edXvertical* } { g o }
  {
-  \subsection* {#1}
-  \addsubtoc {#1}
+  \subsection* { \cleanname{#1} }
+  \addsubtoc { \cleanname{#1} }
   \vspace {-2mm}
  } { }
 
@@ -139,23 +166,37 @@
 
 \NewDocumentEnvironment { edXproblem } { m g }
  {
-  \subsubsection* { \textbf {#1} }
-  \addsubsubtoc {#1}
+  \subsubsection* { \textbf { \cleanname{#1} } }
+  \addsubsubtoc { \cleanname{#1} }
  } { }
 
 \NewDocumentEnvironment { edXtext } { m o }
  {
-  \subsubsection* { \textbf {#1} }
-  \addsubsubtoc {#1}
+  \subsubsection* { \textbf { \cleanname{#1} } }
+  \addsubsubtoc { \cleanname{#1} }
  } { }
 
 \NewDocumentEnvironment { edXscript } { }
  {
-  \noindent
-  \underline { \texttt { Python ~ code: } }
-  \verbatim
+  \ifthenelse
+   {
+    \boolean { showPython }
+   } {
+    \noindent
+    \underline { \texttt { Python ~ code: } }
+    \verbatim
+   } {
+    \comment
+   }
  } {
-  \endverbatim
+  \ifthenelse
+   {
+    \boolean { showPython }
+   } {
+    \endverbatim
+   } {
+    \endcomment
+   }
  }
 
 \NewDocumentEnvironment { edXanswer } { }
@@ -172,24 +213,23 @@
   \endverbatim
  }
 
-\NewDocumentEnvironment { edXmath } { }
- {
-  \begin{displaymath}
- } {
-  \end{displaymath}
- }
+\NewDocumentEnvironment { edXmath } { } { } { }
 
-\NewDocumentCommand \edXgitlink   { m m } { \href {#1} {#2} }
+\NewDocumentCommand \edXgitlink   { m m } { \href {#1} { \color{blue} \underline { \cleanname{#2} } } }
 \NewDocumentCommand \edXinline    { m } {#1}
 \NewDocumentCommand \edXinclude   { m } { \texttt {#1} }
-\NewDocumentCommand \edXincludepy { m } { }
-\NewDocumentCommand \edXdndtex    { m } { }
+\NewDocumentCommand \edXincludepy { m } { \texttt {#1} }
+\NewDocumentCommand \edXdndtex    { m } { \texttt {#1} }
 \NewDocumentCommand \edXxml       { m } { \texttt {#1} }
 \NewDocumentCommand \edXbr        { } { \par }
+
+\ExplSyntaxOff
 \NewDocumentCommand \edXvideo     { m m o }
  {
-  \href { http://www.youtube.com/watch?v=#2 } { \color{blue} \underline {#1} }
+  \href{http://www.youtube.com/watch?v=#2}{\color{blue} \underline {#1}}
  }
+\ExplSyntaxOn
+
 \NewDocumentCommand \edXdiscussion { m m } { \textbf { Discussion: } ~ #1 } { }
 \NewEnviron{ edXsolution }
  {
@@ -204,24 +244,66 @@
    } { }
  } { }
 
+% Extract abox options or prompts
+\seq_new:N \l_aboxopt_seq
+\NewDocumentCommand { \AboxOptions } { m }
+ {
+  \tl_set:Nn \l_aboxopt_seq {#1}
+  % Prepend an empty option attribute for non multichoice problem types
+  \regex_replace_once:nnN
+   { (:?.*) }
+   { options="\cS\ "\cS\ \1 }
+   \l_aboxopt_seq
+  % Replace separating commas by \par
+  \regex_replace_all:nnN
+   { "," }
+   { \c{par} }
+   \l_aboxopt_seq
+  \regex_replace_all:nnN
+   { ',' }
+   { \c{par} }
+   \l_aboxopt_seq
+  % Change 'prompts' to 'options' so as to extract input directives for custom abox types
+  \regex_replace_all:nnN
+   { prompts= }
+   { options= }
+   \l_aboxopt_seq
+  % Extract options
+  \regex_replace_once:nnN
+   { (?:.*)options=['"]+(.*?)['"]+(?:.*) }
+   { \1 }
+   \l_aboxopt_seq
+  \tl_use:N \l_aboxopt_seq
+ }
+
 \NewDocumentCommand \edXabox      { m }
  {
   \ifthenelse
    {
+    \boolean{showAboxOptions}
+   } {
+    \begin{minipage}[t]{0.4\hsize}
+    \AboxOptions{#1}
+    \end{minipage}
+   } { }
+  \ifthenelse
+   {
     \boolean{showAboxCode}
    } {
+    \par
     \fbox
      {
       \parbox {0.9 \hsize}
-      \group_begin:
+      {
+       \group_begin:
        \texttt {#1}
-      \group_end:
+       \group_end:
+      }
      }
    } {
-    \group_begin:
-     \color {blue}
-     \textbf { Assessment ~ content ~ removed }
-    \group_end:
+    \begin{minipage}{0.4\hsize}
+    \hfill
+    \end{minipage}
    }
  }
 
@@ -245,12 +327,14 @@
  }
 
 % Initialize toggling parameters for PDF output
-\newboolean { inVertical }
-\setboolean { inVertical } {false}
 \newboolean { showAboxCode }
 \setboolean { showAboxCode } {false}
+\newboolean { showAboxOptions }
+\setboolean { showAboxOptions } {true}
 \newboolean { showSolution }
 \setboolean { showSolution } {false}
+\newboolean { showPython }
+\setboolean { showPython } {false}
 
 \cs_new:Npn \edx_header_line_format:nn #1#2
  {

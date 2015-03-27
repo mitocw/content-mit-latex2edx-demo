@@ -3,17 +3,25 @@
 % Date:   26-Jan-14
 % Author: I. Chuang <ichuang@mit.edu>
 %
+% Modified by E. V. Heubel <evheubel@mit.edu>
+% Update: 19-Nov-14: EVH - All calls to {\tt } changed to \texttt{}
+%         25-Mar-15: EVH - Added usage of macros from latex2edx v1.4
+%
 % main latex source file for the latex2edx demo course
 % This file can be compiled using
 %
-%   python latex2edx mitx.tex
+%   latex2edx mitx.tex
 %
 % to generate all the content files for the course.
 
 \documentclass[12pt]{article}
 
-\usepackage{edXpsl}	% edX
-\input{ikedoc}
+\usepackage{edXpsl}  % edX
+
+\usepackage{amsmath} % AMS math allows proper rendering of eqnarray by MathJax
+\usepackage{color}   % Color package sets text color using a <span> element
+
+\input{ikedoc} % Include custom macros
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}

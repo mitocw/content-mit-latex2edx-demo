@@ -2,7 +2,7 @@
 
 \begin{edXchapter}{Advanced Examples}
 
-\begin{edXsection}{Matrices}
+\begin{edXsequential}{Matrices}
 
 \begin{edXvertical}
 
@@ -13,19 +13,19 @@
 This problem demonstrates testing of matrix expression equality.  It properly handles the non-commutativity of matrices.
 
 Let $X$, $Y$, and $Z$ be the usual Pauli matrices,
-\bea
-     	X &=& \mattwoc{0}{1}{1}{0}
+\begin{eqnarray}
+    X &=& \mattwoc{0}{1}{1}{0}
 \\ 	Y &=& \mattwoc{0}{-i}{i}{0}
 \\ 	Z &=& \mattwoc{1}{0}{0}{-1}
 \,.
-\eea
+\end{eqnarray}
 Give an expression $M$ equal to $iZ$.
 
-Valid answers include {\LARGE \texttt{X*Y}} and {\LARGE \texttt{i*Z}}.  But {\LARGE \texttt{Y*X}} is properly graded as being invalid.
+Valid answers include {\large \texttt{X*Y}} and {\large \texttt{i*Z}}.  But {\large \texttt{Y*X}} is properly graded as being invalid.
 
-Note that {\LARGE \texttt{X * exp(-i*Y) * Y * exp(i*Y)}} also works (matrix
-exponentials do the correct thing -- although, unfortunately, the edX
-edge system doesn't provide {\LARGE \texttt{scipy.linalg}}, and so it will
+Note that {\large \texttt{X * exp(-i*Y) * Y * exp(i*Y)}} also works (matrix
+exponentials do the correct thing --- although, unfortunately, the edX
+edge system doesn't provide {\large \texttt{scipy.linalg}}, and so it will
 not work there).
 
 % The following code imports matrix_evaluator from the course
@@ -61,7 +61,8 @@ not work there).
   math="1" 
   size="70"
   options="samples='X,Y,Z@[0|1;1|0],[0|(0-1j);(0+1j)|0],[1|0;0|-1]:[0|1;1|0],[0|(0-1j);(0+1j)|0]],[1|0;0|-1]#50'"
-  preprocessorClassName="MathjaxPreprocessorForQM" preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"
+  preprocessorClassName="MathjaxPreprocessorForQM"
+  preprocessorSrc="/static/js/mathjax_preprocessor_for_QM.js"
  }%
 
   % options="samples='X,Y,i@[1|2;3|4],[0|2;4|6],0+1j:[5|5;5|5],[8|8;8|8],0+1j#50'!altanswer='-Y*X'!altanswer='i*Z'"
@@ -118,7 +119,7 @@ Type in \texttt{(2*|0>+3*|b>)/sqrt(13)} as the answer below.
 Multiple correct answer are supported.  \texttt{|b>} is also correct, in
 this example.
 
-\edXxml{<font color="red"><b> Remember to explicitly denote multiplication using [mathjaxinline]\tt *[/mathjaxinline]</b></font>}
+{\color{red}{\textbf{Remember to explicitly denote multiplication using \texttt{*}}}}
 
 \edXbr
 
@@ -181,18 +182,18 @@ correctness.
 
 The $\hat{n}$ vector goes through the point $(\theta, \phi)$ specified
 in polar coordinates, with $\phi=0$ and 
-\bea
+\begin{eqnarray}
    \theta = \cos^{-1} \frac{\omega_0/2}{\sqrt{V^2 + \left(\frac{\omega_0}{2}\right)^2}} 
    = \tan^{-1}\left(\frac{2V}{\omega_0}\right)
 \,.
-\eea
+\end{eqnarray}
 In terms $\theta$, the eigenstates may be expressed as
-\bea
+\begin{eqnarray}
 	|\lambda_+\> = \cos\frac{\theta}{2} |a\> +\sin\frac{\theta}{2} |b\>
 \\
 	|\lambda_-\> = -\sin\frac{\theta}{2} |a\> +\cos\frac{\theta}{2} |b\>
 \,.
-\eea
+\end{eqnarray}
 
 \end{edXsolution}
 
@@ -200,10 +201,10 @@ In terms $\theta$, the eigenstates may be expressed as
 
 \end{edXvertical}
 
-\end{edXsection}
+\end{edXsequential}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{edXsection}{Adaptive hints}
+\begin{edXsequential}{Adaptive hints}
 
 \begin{edXvertical}
 
@@ -231,9 +232,9 @@ $E_{\rm oil}$ compare with the energy density of hot
 \href{http://en.wikipedia.org/wiki/Geothermal_energy}{geothermal}
 fluid $E_{\rm geo}$?
 
-Model the geothermal fluid as water, and assume its starts at 360 K
-when pumped from oil/geothermal wells at a rate of 30 l/s, and is
-cooled to 300 K.
+Model the geothermal fluid as water, and assume its starts at 360~K
+when pumped from oil/geothermal wells at a rate of 30~l/s, and is
+cooled to 300~K.
 
 Give the ratio of energy densities.
 
@@ -245,14 +246,14 @@ Give the ratio of energy densities.
   If the geothermal fluid is basically just water, then its density at
   360~K is approximately 1~g/cm$^3$ (really is 0.97~g/cm$^3$ but also
   changes with temperature as heat is extracted). The heat capacity is
-  approximately $c = 4.18~kJ/kg K$. If the fluid is cooled to a
+  approximately $c =$~4.18~kJ/kg~K. If the fluid is cooled to a
   typical temperature of 300~K, then the total energy density of the
   geothermal fluid is
 \begin{equation}
 \mathcal{E}_{\rm geo} = \rm(4.18~kJ/kg~K)(60~K) = 251~kJ/kg
 \end{equation}
 Oil has an energy density of around 43~MJ/kg (wikipedia gives 46
-MJ/kg).  Thus, $E_{\rm oil}/E_{\rm geo} \approx 177$, so oil has
+MJ/kg).  Thus, $E_{\rm oil}/E_{\rm geo} \approx$~177, so oil has
 nearly 200 times the energy density of the geothermal fluid.  
 
 \end{edXsolution}
@@ -264,11 +265,11 @@ nearly 200 times the energy density of the geothermal fluid.
 
 \end{edXvertical}
 
-\end{edXsection}
+\end{edXsequential}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{edXsection}{Drag and drop input}
+\begin{edXsequential}{Drag and drop input}
 
 \begin{edXvertical}
 
@@ -284,9 +285,9 @@ structure splittings, to properly label the following energy level diagram.
 \begin{itemize}
 
 \item The fine structure splitting raises the four $2P_{3/2}$ states about
-10 GHz above the two $2P_{1/2}$ and two $2S_{1/2}$ states.
+10~GHz above the two $2P_{1/2}$ and two $2S_{1/2}$ states.
 
-\item The Lamb shift raises $2S_{1/2}$ above $2P_{1/2}$ by 1.06 GHz.
+\item The Lamb shift raises $2S_{1/2}$ above $2P_{1/2}$ by 1.06~GHz.
 
 \end{itemize}
 
@@ -346,7 +347,7 @@ $$\lambda = \frac{\DDB{1}{term1}\pm \sqrt{\DDB{2}{term2}\DDB{3}{fac}}}{\DDB{4}{t
 Complete this to give the correct equation for the roots of a
 quadratic polynomial $ax^2 + bx + c$:
 
-\edXinclude{dnd/quadratic_dnd.xml}
+\edXdndtex{dnd/quadratic.tex}
 
 \edXgitlink{\giturl}{Source TeX}
 \end{edXproblem}
@@ -398,7 +399,7 @@ $$F = \frac{\DDB{1}{G} \DDB{2}{m1}\DDB{3}{m2}}{\DDB{4}{d2}}$$
 
 Give Newton's formula for the gravitational force between two bodies:
 
-\edXinclude{dnd/gravity_dnd.xml}
+\edXdndtex{dnd/gravity.tex}
 
 \edXgitlink{\giturl}{Source TeX}
 \end{edXproblem}
@@ -407,11 +408,11 @@ Give Newton's formula for the gravitational force between two bodies:
 
 \end{edXvertical}
 
-\end{edXsection}
+\end{edXsequential}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{edXsection}{Graphical input using javascript}
+\begin{edXsequential}{Graphical input using javascript}
 
 \begin{edXvertical}
 
@@ -436,7 +437,9 @@ math function plotting package, as input to a physics problem.
 \edXincludepy{XML/test_findep1.py}
 
 % this javascript forces the saved jsinput state to be reloaded after 1.4 seconds
-\edXxml{<script type="text/javascript">setTimeout(function(){ JSInput.jsinputConstructor(\$('section.jsinput'))}, 1400);</script>}
+\begin{edXjavascript}
+setTimeout(function(){ JSInput.jsinputConstructor($('section.jsinput'))}, 1400);
+\end{edXjavascript}
 
 \edXabox{expect="" type="jsinput" cfn="test_findep" 
   width="650"
@@ -452,7 +455,7 @@ math function plotting package, as input to a physics problem.
 
 \end{edXvertical}
 
-\end{edXsection}
+\end{edXsequential}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

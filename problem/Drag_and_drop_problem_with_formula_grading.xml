@@ -1,7 +1,8 @@
-<problem display_name="Drag and drop problem with formula grading" attempts="1000">
+<problem display_name="Drag and drop problem with formula grading" linenum="358" tex_filename="./advanced.tex" attempts="1000">
   <text>
     <p>
-This is an example of a problem created using <a href="https://github.com/mitocw/latex2dnd">latex2dnd</a> which is graded as a mathematical formula. </p>
+This is an example of a problem created using <a href="https://github.com/mitocw/latex2dnd" target="_blank">latex2dnd</a>
+ which is graded as a mathematical formula. </p>
     <p>
 Using formula grading allows any input which is mathematically equivalent to the expected answer to be accepted as being correct. </p>
     <p>
@@ -11,7 +12,8 @@ Using formula grading allows any input which is mathematically equivalent to the
             <th> LaTeX code for drag-and-drop graded as formula example [<a onclick="javascript:$('#dndex2').toggle();" href="javascript:void(0);" id="dndex2l">show</a>]</th>
           </tr>
           <tr id="dndex2" style="display:none">
-            <td>Download <a href="https://github.com/mitocw/latex2dnd/blob/master/latex2dnd/testtex/quadratic.tex">from github</a>: <pre>
+            <td>Download <a href="https://github.com/mitocw/latex2dnd/blob/master/latex2dnd/testtex/quadratic.tex" target="_blank">from github</a>
+: <pre>
 \documentclass{article}
 \input{latex2dnd}
 
@@ -47,26 +49,25 @@ $$F = \frac{\DDB{1}{G} \DDB{2}{m1}\DDB{3}{m2}}{\DDB{4}{d2}}$$
     </p>
     <p>
 Give Newton's formula for the gravitational force between two bodies: </p>
-    <p>
-      <span>
-        <customresponse cfn="check_gravity">
-          <drag_and_drop_input img="/static/images/gravity/gravity_dnd.png" target_outline="false" one_per_target="true" no_labels="true" label_bg_color="rgb(222, 139, 238)">
-            <draggable id="G" icon="/static/images/gravity/gravity_dnd_label1.png"/>
-            <draggable id="m1" icon="/static/images/gravity/gravity_dnd_label2.png"/>
-            <draggable id="m2" icon="/static/images/gravity/gravity_dnd_label3.png"/>
-            <draggable id="d" icon="/static/images/gravity/gravity_dnd_label4.png"/>
-            <draggable id="d2" icon="/static/images/gravity/gravity_dnd_label5.png"/>
-            <target id="1" x="77" y="1" w="80" h="74"/>
-            <!-- answer=G -->
-            <target id="2" x="177" y="1" w="79" h="74"/>
-            <!-- answer=m1 -->
-            <target id="3" x="277" y="1" w="79" h="74"/>
-            <!-- answer=m2 -->
-            <target id="4" x="177" y="104" w="79" h="75"/>
-            <!-- answer=d2 -->
-          </drag_and_drop_input>
-        </customresponse>
-        <script type="text/python">
+    <span>
+      <customresponse cfn="check_gravity">
+        <drag_and_drop_input img="/static/images/gravity/gravity_dnd.png" target_outline="false" one_per_target="true" no_labels="true" label_bg_color="rgb(222, 139, 238)">
+          <draggable id="G" icon="/static/images/gravity/gravity_dnd_label1.png"/>
+          <draggable id="m1" icon="/static/images/gravity/gravity_dnd_label2.png"/>
+          <draggable id="m2" icon="/static/images/gravity/gravity_dnd_label3.png"/>
+          <draggable id="d" icon="/static/images/gravity/gravity_dnd_label4.png"/>
+          <draggable id="d2" icon="/static/images/gravity/gravity_dnd_label5.png"/>
+          <target id="1" x="77" y="1" w="80" h="74"/>
+          <!-- answer=G -->
+          <target id="2" x="177" y="1" w="79" h="74"/>
+          <!-- answer=m1 -->
+          <target id="3" x="277" y="1" w="79" h="74"/>
+          <!-- answer=m2 -->
+          <target id="4" x="177" y="104" w="79" h="75"/>
+          <!-- answer=d2 -->
+        </drag_and_drop_input>
+      </customresponse>
+      <script type="text/python">
 import random
 from math import *
 from calc import evaluator
@@ -149,14 +150,13 @@ dnd_check_function = check_gravity
 
 
 </script>
-        <solution>
-          <img src="/static/images/gravity/gravity_dnd_sol.png"/>
-        </solution>
-      </span>
-    </p>
+      <solution>
+        <img src="/static/images/gravity/gravity_dnd_sol.png"/>
+      </solution>
+    </span>
     <p>
       <span class="gitlink" style="float:right">
-        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L402">Source TeX</a>
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./advanced.tex#L405">Source TeX</a>
       </span>
     </p>
   </text>

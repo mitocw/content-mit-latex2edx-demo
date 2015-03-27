@@ -1,19 +1,19 @@
-<problem display_name="Quantum mechanics ket input" attempts="1000" weight="10">
+<problem display_name="Quantum mechanics ket input" linenum="108" tex_filename="./advanced.tex" attempts="1000" weight="10">
   <text>
     <p>
 Quantum mechanics uses &#x201C;ket" notation like [mathjaxinline]|\psi \rangle[/mathjaxinline] to indicate unit vectors. </p>
     <p>
 This problem demonstrates how to use customresponse python code to check for equality of formulas with such ket notation, as well as a javascript pre-processor to properly format ket expressions. </p>
     <p>
-Type in <tt class="tt">(2*|0&gt;+3*|b&gt;)/sqrt(13)</tt> as the answer below. </p>
+Type in <tt class="ttfamily">(2*|0&gt;+3*|b&gt;)/sqrt(13)</tt> as the answer below. </p>
     <p>
-Multiple correct answer are supported. <tt class="tt">|b&gt;</tt> is also correct, in this example. </p>
-    <font color="red">
-      <b> Remeber to explicitly denote multiplication using [mathjaxinline]\tt *[/mathjaxinline]</b>
-    </font>
+Multiple correct answer are supported. <tt class="ttfamily">|b&gt;</tt> is also correct, in this example. </p>
     <p>
-      <br/>
-      <script>
+      <span style="color:#FF0000">
+        <b class="bfseries">Remember to explicitly denote multiplication using <tt class="ttfamily">*</tt></b>
+      </span>
+    </p>
+    <script>
 #
 # all evaluators and calc2 in one file - must use this on
 # edX studio because it doesn't support use of /python_lib
@@ -942,7 +942,6 @@ def ket_evaluator_test():
 
 
 </script>
-    </p>
     <p>
       <p style="display:inline">[mathjaxinline]|\lambda \rangle  =[/mathjaxinline] </p>
       <customresponse cfn="test_ket" inline="1" expect="(2*|0&amp;gt;+3*|b&amp;gt;)/sqrt(13)" options="samples='a,b@1,1:20,20#10'!altanswer='|a&amp;gt;'" cfn_extra_args="options">
@@ -957,40 +956,34 @@ Note that correctness of the student's input expression is checked by python cod
         <font color="blue">
           <p>
 The [mathjaxinline]\hat{n}[/mathjaxinline] vector goes through the point [mathjaxinline](\theta , \phi )[/mathjaxinline] specified in polar coordinates, with [mathjaxinline]\phi =0[/mathjaxinline] and </p>
-          <table id="a0000000006" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
-            <tr id="a0000000007">
-              <td style="width:40%; border:none">&#xA0;</td>
-              <td style="vertical-align:middle;                                    text-align:right; border:none">
-	    [mathjaxinline]\displaystyle \theta = \cos ^{-1} \frac{\omega _0/2}{\sqrt {V^2 + \left(\frac{\omega _0}{2}\right)^2}} = \tan ^{-1}\left(\frac{2V}{\omega _0}\right) \, .[/mathjaxinline]
-        </td>
-              <td style="width:40%; border:none">&#xA0;</td>
-              <td style="width:20%; border:none" class="eqnnum">
-                <span>(<span>4</span>)</span>
-              </td>
-            </tr>
-          </table>
-          <p>
-In terms [mathjaxinline]\theta[/mathjaxinline], the eigenstates may be expressed as </p>
           <table id="a0000000008" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
             <tr id="a0000000009">
               <td style="width:40%; border:none">&#xA0;</td>
               <td style="vertical-align:middle;                                    text-align:right; border:none">
-	    [mathjaxinline]\displaystyle |\lambda _+\rangle  = \cos \frac{\theta }{2} |a\rangle  +\sin \frac{\theta }{2} |b\rangle[/mathjaxinline]
+	    [mathjaxinline]\displaystyle  \theta = \cos ^{-1} \frac{\omega _0/2}{\sqrt {V^2 + \left(\frac{\omega _0}{2}\right)^2}} = \tan ^{-1}\left(\frac{2V}{\omega _0}\right) \, .[/mathjaxinline]
         </td>
               <td style="width:40%; border:none">&#xA0;</td>
-              <td style="width:20%; border:none" class="eqnnum">
-                <span>(<span>5</span>)</span>
-              </td>
+              <td style="width:20%; border:none" class="eqnnum"/>
             </tr>
-            <tr id="a0000000010">
+          </table>
+          <p>
+ In terms [mathjaxinline]\theta[/mathjaxinline], the eigenstates may be expressed as </p>
+          <table id="a0000000010" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
+            <tr id="a0000000011">
+              <td style="width:40%; border:none">&#xA0;</td>
+              <td style="vertical-align:middle;                                    text-align:right; border:none">
+	    [mathjaxinline]\displaystyle  |\lambda _+\rangle  = \cos \frac{\theta }{2} |a\rangle  +\sin \frac{\theta }{2} |b\rangle[/mathjaxinline]
+        </td>
+              <td style="width:40%; border:none">&#xA0;</td>
+              <td style="width:20%; border:none" class="eqnnum"/>
+            </tr>
+            <tr id="a0000000012">
               <td style="width:40%; border:none">&#xA0;</td>
               <td style="vertical-align:middle;                                    text-align:right; border:none">
 	    [mathjaxinline]\displaystyle |\lambda _-\rangle  = -\sin \frac{\theta }{2} |a\rangle  +\cos \frac{\theta }{2} |b\rangle  \, .[/mathjaxinline]
         </td>
               <td style="width:40%; border:none">&#xA0;</td>
-              <td style="width:20%; border:none" class="eqnnum">
-                <span>(<span>6</span>)</span>
-              </td>
+              <td style="width:20%; border:none" class="eqnnum"/>
             </tr>
           </table>
         </font>
