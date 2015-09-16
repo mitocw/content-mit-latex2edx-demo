@@ -1,11 +1,11 @@
-<problem display_name="Custom response">
+<problem display_name="Custom response" linenum="138" tex_filename="./basic.tex">
   <text>
     <p>
       <h2>Example of custom response</h2>
     </p>
     <p>
 This problem demonstrates the use of a custom python script used for checking the answer. </p>
-    <script type="text/python" system_path="python_lib">
+    <script linenum="145" filename="./basic.tex" type="text/python" system_path="python_lib">
 
 def sumtest(expect,ans):
     try:
@@ -19,14 +19,14 @@ def sumtest(expect,ans):
 Enter two numbers which add up to 10: </p>
     <p>
       <customresponse cfn="sumtest" inline="1" expect="">
-        <p style="display:inline">x =<textline correct_answer="1" inline="1"/></p>
+        <p style="display:inline">x = <textline correct_answer="1" inline="1"/></p>
         <br/>
-        <p style="display:inline">y =<textline correct_answer="9" inline="1"/></p>
+        <p style="display:inline">y = <textline correct_answer="9" inline="1"/></p>
       </customresponse>
     </p>
     <p>
       <span class="gitlink" style="float:right">
-        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./basic.tex#L191">Source TeX</a>
+        <a href="https://github.com/mitocw/content-mit-latex2edx-demo/blob/master/src/./basic.tex#L165">Source TeX</a>
       </span>
     </p>
   </text>

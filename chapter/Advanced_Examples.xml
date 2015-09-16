@@ -1,28 +1,28 @@
-<chapter display_name="Advanced Examples">
-  <sequential display_name="Matrices" url_name="Matrices">
-    <vertical url_name="Matrices_vertical">
+<chapter display_name="Advanced Examples" linenum="3" tex_filename="./advanced.tex" refnum="3">
+  <sequential display_name="Matrices" refnum="1" url_name="Matrices">
+    <vertical refnum="1" url_name="Matrices_vertical">
       <problem url_name="Matrix_expression_equality"/>
     </vertical>
-    <vertical url_name="Matrices_verticalx">
+    <vertical refnum="2" url_name="Matrices_verticalx">
       <problem url_name="Quantum_mechanics_ket_input"/>
     </vertical>
   </sequential>
-  <sequential display_name="Adaptive hints" url_name="Adaptive_hints">
-    <vertical url_name="Adaptive_hints_vertical">
+  <sequential display_name="Adaptive hints" refnum="2" url_name="Adaptive_hints">
+    <vertical refnum="1" url_name="Adaptive_hints_vertical">
       <problem url_name="Magnitude_off_hint"/>
     </vertical>
   </sequential>
-  <sequential display_name="Drag and drop input" url_name="Drag_and_drop_input">
-    <vertical url_name="Drag_and_drop_input_vertical">
+  <sequential display_name="Drag and drop input" refnum="3" url_name="Drag_and_drop_input">
+    <vertical refnum="1" url_name="Drag_and_drop_input_vertical">
       <problem url_name="Approximate_energy_level_diagram"/>
     </vertical>
-    <vertical url_name="Drag_and_drop_input_verticalx">
+    <vertical refnum="2" url_name="Drag_and_drop_input_verticalx">
       <problem url_name="Drag_and_drop_problem_created_via_latex2dnd"/>
       <problem url_name="Drag_and_drop_problem_with_formula_grading"/>
     </vertical>
   </sequential>
-  <sequential display_name="Graphical input using javascript" url_name="Graphical_input_using_javascript">
-    <vertical url_name="Graphical_input_using_javascript_vertical">
+  <sequential display_name="Graphical input using javascript" refnum="4" url_name="Graphical_input_using_javascript">
+    <vertical refnum="1" url_name="Graphical_input_using_javascript_vertical">
       <problem url_name="Graphical_input_via_jsxgraph"/>
     </vertical>
   </sequential>

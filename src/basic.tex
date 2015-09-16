@@ -4,21 +4,21 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{edXsection}{Basic example problems}
+\begin{edXsequential}{Basic example problems}
 
 \begin{edXvertical}
 
-\begin{edXproblem}{Option response}
+\begin{edXproblem}{Option response}{weight="10"}
 
 This is a sample problem, which is worth 10 points.
 
-Give the correct python {\tt type} for the following expressions.  Select {\tt noneType} if the expression is illegal.
+Give the correct python \texttt{type} for the following expressions.  Select \texttt{noneType} if the expression is illegal.
 
 \begin{itemize}
-\item \edXinline{\tt 3~~~}   \edXabox{expect="int" options="noneType","int","float" type="option" inline="1"}
-\item \edXinline{\tt 5.2~~~} \edXabox{expect="float" options="noneType","int","float" type="option" inline="1"}
-\item \edXinline{\tt 3/2~~~} \edXabox{expect="int" options="noneType","int","float" type="option" inline="1"}
-\item \edXinline{\tt 1+[]~~~} \edXabox{expect="noneType" options="noneType","int","float" type="option" inline="1"}
+\item \edXinline{\texttt{3}~~~}   \edXabox{expect="int" options="noneType","int","float" type="option" inline="1"}
+\item \edXinline{\texttt{5.2}~~~} \edXabox{expect="float" options="noneType","int","float" type="option" inline="1"}
+\item \edXinline{\texttt{3/2}~~~} \edXabox{expect="int" options="noneType","int","float" type="option" inline="1"}
+\item \edXinline{\texttt{1+[]}~~~} \edXabox{expect="noneType" options="noneType","int","float" type="option" inline="1"}
 \end{itemize}
 
 \edXgitlink{\giturl}{Source TeX}
@@ -59,21 +59,9 @@ Explanations can also be provided inside:
 
 What color is the sky on a clear sunny day?
 
-\begin{edXscript}
-
-aset = [ 'Red',
-         'Green',
-         'Blue',
-         'Black',
-      ]
-
-(ans1,ans2,ans3,ans4) = aset
-
-\end{edXscript}
-
 \edXabox{type="multichoice" 
-  expect="\$ans3"
-  options="\$ans1","\$ans2","\$ans3","\$ans4" }
+  expect="Blue"
+  options="Red","Green","Blue","Black" }
 
 \edXgitlink{\giturl}{Source TeX}
 \end{edXproblem}
@@ -83,23 +71,9 @@ aset = [ 'Red',
 
 What are the best computer programming language?  Choose {\em all} which apply:
 
-\begin{edXscript}
-
-aset = [ 'Cobol',
-         'Pascal',
-         'Python',
-         'C++',
-         'Clu',
-         'Forth',
-      ]
-
-(ans1,ans2,ans3,ans4,ans5,ans6) = aset
-
-\end{edXscript}
-
-\edXabox{type="multichoice" 
-  expect="\$ans3","\$ans4"
-  options="\$ans1","\$ans2","\$ans3","\$ans4","\$ans5","\$ans6"
+\edXabox{type="oldmultichoice" 
+  expect="Python","C++"
+  options="Cobol","Pascal","Python","C++","Clu","Forth"
  }
 
 \edXgitlink{\giturl}{Source TeX}
@@ -115,7 +89,7 @@ aset = [ 'Cobol',
 
 \begin{edXproblem}{Numerical response}
 
-\section{Example of numerical response}  
+\section*{Example of numerical response}  
 
 What is the numerical value of $\pi$?
 
@@ -163,7 +137,7 @@ then aligned with each other and their magnetic moments just add.
 
 \begin{edXproblem}{Custom response}
 
-\section{Example of custom response}  
+\section*{Example of custom response}  
 
 This problem demonstrates the use of a custom python script used for
 checking the answer.
@@ -183,7 +157,7 @@ Enter two numbers which add up to 10:
 
 \edXabox{expect=""
   type="custom"
-  answers="1,9"
+  answers="1","9"
   prompts="x = ","y = "
   cfn="sumtest"
   inline="1" }%
@@ -205,12 +179,12 @@ This problem demonstrates the use of a the ``formula response'' problem.
 
 Let $f(x) = a x^2 + bx + c$.  Assume the coefficients $a$, $b$, $c$
 are such that $f$ has two distinct real roots. Give an equation for
-$\lambda$, the larger of the two roots, such that $f(\lambda)=0$.''
+$\lambda$, the larger of the two roots, such that $f(\lambda)=0$.
 
-Use {\tt ^} for exponentiation, e.g. {\tt x^2} denotes $x^2$.
-Explicitly include multiplication using ${\tt *}$, e.g. ${\tt x*y}$ is
-$xy$.  Standard mathematical functions may be employed, e.g. ${\tt sin(x)}$,
-${\tt sqrt(x)}$, etc.
+Use \texttt{^} for exponentiation, e.g. \texttt{x^2} denotes $x^2$.
+Explicitly include multiplication using \texttt{*}, e.g. \texttt{x*y} is
+$xy$.  Standard mathematical functions may be employed, e.g. \texttt{sin(x)},
+\texttt{sqrt(x)}, etc.
 
 % note that the sampling range must be carefully chosen such that
 % the argument of the sqrt does not go negative, for the default random
@@ -226,17 +200,17 @@ ${\tt sqrt(x)}$, etc.
 
 \end{edXvertical}
 
-\end{edXsection}
+\end{edXsequential}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{edXsection}{Video and text}
+\begin{edXsequential}{Video and text}
 
 \begin{edXvertical}
 
 \begin{edXtext}{Sample show-hide text section}
 
-{\LARGE Sample show-hide text section}
+\section*{Sample show-hide text section}
 
 Pieces of text (and images) can be put inside a ``showhide'' section, which the user can hide or show via a click.
 
@@ -246,33 +220,35 @@ Note that rotations leave points on the axis of rotation unmoved.  For
 a point $(\theta, \phi)$ specified in polar coordinates on the surface
 of the \href{http://en.wikipedia.org/wiki/Bloch_sphere}{Bloch sphere},
 the corresponding two-level quantum state is
-\bea
+\begin{eqnarray}
 	|\psi\> = \cos\frac{\theta}{2} |a\> +
         e^{i\phi}\sin\frac{\theta}{2} |b\>
 \,.
-\eea
+\end{eqnarray}
 
-Enter the state using the vertical bar ${\tt |}$ and greater-than
-symbol ${\tt >}$ to delineate a ``ket'' and enter $\omega_0$ as ${\tt omega\_0}$ as usual.
+Enter the state using the vertical bar \texttt{|} and greater-than
+symbol \texttt{>} to delineate a ``ket'' and enter $\omega_0$ as \texttt{omega_0} as usual.
 
-Expressions like ${\tt (2*|a> + |b>)/sqrt(3)}$ are legal input
-(remember to include ${\tt *}$ to denote multiplication, for
+Expressions like \texttt{(2*|a> + |b>)/sqrt(3)} are legal input
+(remember to include \texttt{*} to denote multiplication, for
 coefficients in front of kets).
 
-Standard mathematical functions may be employed, e.g. ${\tt sin(x)}$,
-${\tt sqrt(x)}$, ${\tt arccos(x)}$,  ${\tt arctan(x)}$, etc.  
+Standard mathematical functions may be employed, e.g. \texttt{sin(x)},
+\texttt{sqrt(x)}, \texttt{arccos(x)},  \texttt{arctan(x)}, etc.  
 
 \end{edXshowhide}
+
+\end{edXtext}
 
 \end{edXvertical}
 
 \begin{edXvertical}
 
-\edXxml{<video url_name="week0_intro" display_name="Introduction to 6.SFMx" youtube="1.0:VfOMvuHcJi0" />}
+\edXvideo{Introduction to 6.SFMx}{VfOMvuHcJi0}[url_name="week0_intro"]
 
 \end{edXvertical}
 
-\end{edXsection}
+\end{edXsequential}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{edXchapter}

@@ -1,6 +1,6 @@
-<chapter display_name="Introduction">
-  <sequential display_name="Introduction to latex2edx" url_name="Introduction_to_latex2edx">
-    <vertical url_name="Introduction_to_latex2edx_vertical">
+<chapter display_name="Introduction" linenum="3" tex_filename="./intro.tex" refnum="1">
+  <sequential display_name="Introduction to latex2edx" refnum="1" url_name="Introduction_to_latex2edx">
+    <vertical refnum="1" url_name="Introduction_to_latex2edx_vertical">
       <html url_name="intro"/>
     </vertical>
   </sequential>

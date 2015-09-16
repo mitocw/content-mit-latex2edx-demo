@@ -1,6 +1,6 @@
-<html display_name="Sample show-hide text section" attrib_string="">
+<html display_name="Sample show-hide text section" linenum="211" tex_filename="./basic.tex">
   <p>
-    <big class="xxlarge">Sample show-hide text section</big>
+    <h2>Sample show-hide text section</h2>
   </p>
   <p>
 Pieces of text (and images) can be put inside a &#x201C;showhide" section, which the user can hide or show via a click. </p>
@@ -13,25 +13,24 @@ Pieces of text (and images) can be put inside a &#x201C;showhide" section, which
         <tr id="ps4starkket" style="display:none">
           <td>
             <p>
-Note that rotations leave points on the axis of rotation unmoved. For a point [mathjaxinline](\theta , \phi )[/mathjaxinline] specified in polar coordinates on the surface of the <a href="http://en.wikipedia.org/wiki/Bloch_sphere">Bloch sphere</a>, the corresponding two-level quantum state is </p>
+Note that rotations leave points on the axis of rotation unmoved. For a point [mathjaxinline](\theta , \phi )[/mathjaxinline] specified in polar coordinates on the surface of the <a href="http://en.wikipedia.org/wiki/Bloch_sphere" target="_blank">Bloch sphere</a>
+, the corresponding two-level quantum state is </p>
             <table id="a0000000002" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto">
               <tr id="a0000000003">
                 <td style="width:40%; border:none">&#xA0;</td>
                 <td style="vertical-align:middle;                                    text-align:right; border:none">
-	    [mathjaxinline]\displaystyle |\psi \rangle  = \cos \frac{\theta }{2} |a\rangle  + e^{i\phi }\sin \frac{\theta }{2} |b\rangle  \, .[/mathjaxinline]
+	    [mathjaxinline]\displaystyle  |\psi \rangle  = \cos \frac{\theta }{2} |a\rangle  + e^{i\phi }\sin \frac{\theta }{2} |b\rangle  \, .[/mathjaxinline]
         </td>
                 <td style="width:40%; border:none">&#xA0;</td>
-                <td style="width:20%; border:none" class="eqnnum">
-                  <span>(<span>1</span>)</span>
-                </td>
+                <td style="width:20%; border:none" class="eqnnum"/>
               </tr>
             </table>
             <p>
-Enter the state using the vertical bar [mathjaxinline]{\tt |}[/mathjaxinline] and greater-than symbol [mathjaxinline]{\tt &gt;}[/mathjaxinline] to delineate a &#x201C;ket" and enter [mathjaxinline]\omega _0[/mathjaxinline] as [mathjaxinline]{\tt omega\_ 0}[/mathjaxinline] as usual. </p>
+Enter the state using the vertical bar <tt class="ttfamily">|</tt> and greater-than symbol <tt class="ttfamily">&gt;</tt> to delineate a &#x201C;ket" and enter [mathjaxinline]\omega _0[/mathjaxinline] as <tt class="ttfamily">omega_0</tt> as usual. </p>
             <p>
-Expressions like [mathjaxinline]{\tt (2*|a&gt; + |b&gt;)/sqrt(3)}[/mathjaxinline] are legal input (remember to include [mathjaxinline]{\tt *}[/mathjaxinline] to denote multiplication, for coefficients in front of kets). </p>
+Expressions like <tt class="ttfamily">(2*|a&gt; + |b&gt;)/sqrt(3)</tt> are legal input (remember to include <tt class="ttfamily">*</tt> to denote multiplication, for coefficients in front of kets). </p>
             <p>
-Standard mathematical functions may be employed, e.g. [mathjaxinline]{\tt sin(x)}[/mathjaxinline], [mathjaxinline]{\tt sqrt(x)}[/mathjaxinline], [mathjaxinline]{\tt arccos(x)}[/mathjaxinline], [mathjaxinline]{\tt arctan(x)}[/mathjaxinline], etc. </p>
+Standard mathematical functions may be employed, e.g. <tt class="ttfamily">sin(x)</tt>, <tt class="ttfamily">sqrt(x)</tt>, <tt class="ttfamily">arccos(x)</tt>, <tt class="ttfamily">arctan(x)</tt>, etc. </p>
           </td>
         </tr>
       </tbody>

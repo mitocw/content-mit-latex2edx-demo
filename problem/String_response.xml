@@ -1,4 +1,4 @@
-<problem display_name="String response">
+<problem display_name="String response" linenum="30" tex_filename="./basic.tex">
   <text>
     <p>
 What state is Detroit in? </p>

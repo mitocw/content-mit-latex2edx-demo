@@ -1,8 +1,5 @@
-<html display_name="intro" attrib_string="">
-  <p>
-Welcome to the <tt class="tt">latex2edx</tt> demo course! </p>
-  <p>
-This course provides examples of some of the capabilities of the latex2edx system, which compiles [mathjaxinline]\LaTeX[/mathjaxinline] into XML code for edX courses. </p>
-  <p>
-The focus of this system is on providing sophisticated auto-gradable science, technology, engineering, and math (STEM) problems, by extending a document preparation system to provide interactive &#x201C;answer boxes" for student input and auto-grader responses. </p>
-</html>
+<html display_name="intro" linenum="10" tex_filename="./intro.tex"><p>
+Welcome to the <tt class="ttfamily">latex2edx</tt> demo course! </p><p>
+This course provides examples of some of the capabilities of the latex2edx system, which compiles </p>[mathjax]\LaTeX[/mathjax]<p>
+ into XML code for edX courses. </p><p>
+The focus of this system is on providing sophisticated auto-gradable science, technology, engineering, and math (STEM) problems, by extending a document preparation system to provide interactive &#x201C;answer boxes" for student input and auto-grader responses. </p></html>

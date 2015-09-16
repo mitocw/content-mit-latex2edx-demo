@@ -1,15 +1,13 @@
-<problem display_name="Option response">
+<problem display_name="Option response" linenum="11" tex_filename="./basic.tex" weight="10">
   <text>
     <p>
 This is a sample problem, which is worth 10 points. </p>
     <p>
-Give the correct python <tt class="tt">type</tt> for the following expressions. Select <tt class="tt">noneType</tt> if the expression is illegal. </p>
+Give the correct python <tt class="ttfamily">type</tt> for the following expressions. Select <tt class="ttfamily">noneType</tt> if the expression is illegal. </p>
     <ul class="itemize">
       <li>
         <p>
-          <p style="display:inline">
-            <tt class="tt">3&#xA0;&#xA0;&#xA0;</tt>
-          </p>
+          <p style="display:inline"><tt class="ttfamily">3</tt>&#xA0;&#xA0;&#xA0;</p>
           <optionresponse inline="1">
             <optioninput options="('noneType','int','float')" correct="int" inline="1"/>
           </optionresponse>
@@ -17,9 +15,7 @@ Give the correct python <tt class="tt">type</tt> for the following expressions. 
       </li>
       <li>
         <p>
-          <p style="display:inline">
-            <tt class="tt">5.2&#xA0;&#xA0;&#xA0;</tt>
-          </p>
+          <p style="display:inline"><tt class="ttfamily">5.2</tt>&#xA0;&#xA0;&#xA0;</p>
           <optionresponse inline="1">
             <optioninput options="('noneType','int','float')" correct="float" inline="1"/>
           </optionresponse>
@@ -27,9 +23,7 @@ Give the correct python <tt class="tt">type</tt> for the following expressions. 
       </li>
       <li>
         <p>
-          <p style="display:inline">
-            <tt class="tt">3/2&#xA0;&#xA0;&#xA0;</tt>
-          </p>
+          <p style="display:inline"><tt class="ttfamily">3/2</tt>&#xA0;&#xA0;&#xA0;</p>
           <optionresponse inline="1">
             <optioninput options="('noneType','int','float')" correct="int" inline="1"/>
           </optionresponse>
@@ -37,9 +31,7 @@ Give the correct python <tt class="tt">type</tt> for the following expressions. 
       </li>
       <li>
         <p>
-          <p style="display:inline">
-            <tt class="tt">1+[]&#xA0;&#xA0;&#xA0;</tt>
-          </p>
+          <p style="display:inline"><tt class="ttfamily">1+[]</tt>&#xA0;&#xA0;&#xA0;</p>
           <optionresponse inline="1">
             <optioninput options="('noneType','int','float')" correct="noneType" inline="1"/>
           </optionresponse>
